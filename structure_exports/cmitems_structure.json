@@ -1,0 +1,276 @@
+{
+  "project_info": {
+    "name": "cmitems",
+    "path": "C:\\Users\\ugole\\OneDrive\\Documents\\Code\\Java\\CmItems\\src\\main\\resources\\assets\\cmitems",
+    "generated_at": "2025-12-18T22:35:25.9148413",
+    "total_files": 13,
+    "total_size": 13363
+  },
+  "structure": {
+    "icon.png": {
+      "type": "file",
+      "info": {
+        "size": 10719,
+        "last_modified": "2025-12-18T22:35:25.774497",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    },
+    "items": {
+      "ender_bow.json": {
+        "type": "file",
+        "info": {
+          "size": 94,
+          "last_modified": "2025-12-18T22:35:25.7840885",
+          "mime_type": "text/plain",
+          "extension": ".json"
+        }
+      },
+      "lightning_stick.json": {
+        "type": "file",
+        "info": {
+          "size": 100,
+          "last_modified": "2025-12-18T22:35:25.7921158",
+          "mime_type": "text/plain",
+          "extension": ".json"
+        }
+      }
+    },
+    "lang": {
+      "en_us.json": {
+        "type": "file",
+        "info": {
+          "size": 221,
+          "last_modified": "2025-12-18T22:35:25.8051682",
+          "mime_type": "text/plain",
+          "extension": ".json"
+        }
+      }
+    },
+    "models": {
+      "item": {
+        "enderbow": {
+          "ender_bow_pulling_0.json": {
+            "type": "file",
+            "info": {
+              "size": 120,
+              "last_modified": "2025-12-18T22:35:25.8197653",
+              "mime_type": "text/plain",
+              "extension": ".json"
+            }
+          },
+          "ender_bow_pulling_1.json": {
+            "type": "file",
+            "info": {
+              "size": 126,
+              "last_modified": "2025-12-18T22:35:25.8278247",
+              "mime_type": "text/plain",
+              "extension": ".json"
+            }
+          },
+          "ender_bow_pulling_2.json": {
+            "type": "file",
+            "info": {
+              "size": 120,
+              "last_modified": "2025-12-18T22:35:25.8350104",
+              "mime_type": "text/plain",
+              "extension": ".json"
+            }
+          }
+        },
+        "ender_bow.json": {
+          "type": "file",
+          "info": {
+            "size": 975,
+            "last_modified": "2025-12-18T22:35:25.8470566",
+            "mime_type": "text/plain",
+            "extension": ".json"
+          }
+        },
+        "lightning_stick.json": {
+          "type": "file",
+          "info": {
+            "size": 40,
+            "last_modified": "2025-12-18T22:35:25.8540851",
+            "mime_type": "text/plain",
+            "extension": ".json"
+          }
+        }
+      }
+    },
+    "textures": {
+      "item": {
+        "enderbow": {
+          "ender_bow.png": {
+            "type": "file",
+            "info": {
+              "size": 180,
+              "last_modified": "2025-12-18T22:35:25.8726648",
+              "mime_type": "image/png",
+              "extension": ".png"
+            }
+          },
+          "ender_bow_pulling_0.png": {
+            "type": "file",
+            "info": {
+              "size": 231,
+              "last_modified": "2025-12-18T22:35:25.8791883",
+              "mime_type": "image/png",
+              "extension": ".png"
+            }
+          },
+          "ender_bow_pulling_1.png": {
+            "type": "file",
+            "info": {
+              "size": 226,
+              "last_modified": "2025-12-18T22:35:25.886227",
+              "mime_type": "image/png",
+              "extension": ".png"
+            }
+          },
+          "ender_bow_pulling_2.png": {
+            "type": "file",
+            "info": {
+              "size": 211,
+              "last_modified": "2025-12-18T22:35:25.89326",
+              "mime_type": "image/png",
+              "extension": ".png"
+            }
+          }
+        }
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "icon.png",
+      "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000¹\u0000\u0000\u0000¹\b\u0006\u0000\u0000\u0000t­\\\u0000\u0000\u0000\u0006bKGD\u0000ÿ\u0000ÿ\u0000ÿ ½§\u0000\u0000)IDATxÚíÝ\u0007|TÅö\u0007plÏ\u0002\bÒ{'\u0014éH/!Hª\bb§(¢<EQQA¥÷T\u0012Rh\u0001\u0015ÿ÷\u0004E\u000e!!¡^Å\"ÝB2ÿó\u001b¼eË½»3»÷nîý|Î\u0007QHLö»3gÎäËg?¦zöïßtøð¡\u001c9uàÀ-»víªbWìÇ´OFFFÈÎ;cw¤¥IÝr!ÒRS³víÌ¸¼7sÏ^B\u001d¹ÿûöeF\u0013ìk\u0007\u000eìgÚ8xð\u0000;räào»wg¼`GíÇ\u0014\u000fcìôôô±)))g7mÜÈ6¬_ï6\u001cQ»\u000b\u001aá¯ÒÈþ¶ý]¶=iii#S¶m½ì\t¶·ÈE\u001c:tèïýû÷Ï¶¿ãöã·gëÖ­Õ·mÛvÒ\bî-7³Ý»vy\\3²ÿCÓpû\u0015°\u001fµ£÷öèM6eëÅ½yÓF¶sgO¸`¿¶wofýjØÛçÜ¹s\u0015O:\u0015÷Ûog;÷ûyËgÏ½ôë¯¿:vìØ®\u0003\u0007ö}¹ûõÝ»w\u000fFìÝ»\u0016©ëÅ½qÃ\u0006F\u000bP¶ÿ>©À\u001dGöÌÌÌHûÕ´\\\u000fí}úôé_.^¼À.]ºè2®\\¹Äþüó*ûûï¿ØÙ³gøtC/pÊ¦°ýûö*Ãmc·\u001f§\u000fe)\u001e£Aú´;ØÎâÄñãLOÖ\u0004²Ñ4Âo¸\u001d\u0003)I³'Û¯v\u001e{(oý4MC.^¾|\u0019\u0005øõÔ/lgF\u0007Ü),3sOÀpß<²\u0003{f\u0012Ò¶ ~vìØ\u0011zòä\u000f'1Ýð\u0006·c`Êrò\u0013è\u0000¡OçómàßçÇi7#û¾}û\u0016Û\u001aèÁÈµ\"9iüäÄËK\u0016Å²Å1lÙâ8±#ýòóR°øãsì\u0007~¿éãÈCYûöíYFßÛl%\u0016~\u0012\u0016LZ\u00187?+qa\u0004K¼)\u0016%D±µß®b§~ùI*vÊÊ°\u0013'¼ÇþÃ\u000fÇÙÏ?ÿÄ~ùågöë¯¿ð_üñ$`JÇ~ôèá,Z ~fc·Ø°0rLlÌÜk\u000b#âvýûïV\u0013¨SÒ±\u001b\u0019Ù\u001f?Æ.\\8Ï³7®âüùóô1P1¡}ßJ\u001b»ÙGîøðî\u000b¢æ\\^\u00105[\u0017nÇÀTf{Êfô_±\u00130ú3¿¹Åí\u0018.]`´¾PzÌ¦ý¯i_à.[èèyuãbç7{\nó\u0016¸6>^±\u001d:¸_*tÄ\u000bð©\u0007Fì\u0013'0%ùæñ¿³¿þúÓ\u0010pm ·é=Föolì\u0001~âãÃK%ÄF\u001c?g27{2\u0000\\Ä¯¿äS\u0007ÙÐ¯^½ê5hOÓãÇ+\u0019Ùiö[\u001b»\u0015áá\u0005â£SÂçLå¸EDÌÎ\u0016.ç\u0013î\u0004Z¤FÌÆ?Þ¢\u0018¹g\u0014Ü/_ÌÙ-U\u0019×±\u001fS5ÙºvíÚ\u0002¶@Ï;ï¼sëòeñ\tQógdkq;Fäüi^aÇæÏrÓÇK^ºJ[½¾ \u001c@5ngØ\u001d;ª\nû:\u001b»çÓO¾\u0012\u001b=÷;Ü\u0011AØc£ç°Äø\b·¸béñã}úÉ2öÃc\u0006FoÔº\\ñ;pm`Ñ{ôè\u0011\u0015yv{dõ¬ühé°%I1WÂçNeFk\u0003£sTø\f\u000e>>n>K\u000bç\u0011¿`>_¨:\u001b½ÝÅòelßÞ=nq_½zÅ§\u0005¥ìøý÷³<£bd?xp_\u001aÕÒ\u0017µµ\u001a|¨µô¡C\u0007þ¼4¥Ù\"!.­_÷\rmÔà[üÈ³_¹rÙT¸µÿ¯ß~;\u0003*°ã×T:QÜÖëáIMM-\u0006Ü4\"fãÙ½kGÎBÐ\u0011\u001d9ÏÿE,§7eæôOSô`W±JÇò8ö£G´5;<´µ\\ààÁý+.\\¸åø¢üüóI¾Q\u0013npZ¡20ÅY\u00109;\u0017pm$[\u0000;²=§OÿªrdßF¯k<\u0016.·ïÙ³g&\u00157ýíé\u0005Ùµ3-\u001fðé\u000b~²ÄÅÌu\tÜ\u0011ûÝVÀ~Fá\nFöy{dß³g×«4½bä\u0005¹JsÞÔí[ø\"2\u0010£wÃôDoX\u0001;\u0016Ë(\b;xÐÆ.aj²{,-Ò.ùô\u0010ö­\u001b9:õÀ);\u00131°Îõ\n¸Õ°_¹r\u001f ©\nì4-M\u000bú\u0005jìh*gô!ì[7¯=2vMi*¸0çÏ\u0013béW¤\u001biä+pëa¿ÌK~\u0015bÏ\bÚ}úô©\f±°§¦nr\u0003-¾§\u0011w¦W¸\u0007ä%Ñ.c\u0011m\u001cIÇ¾d!ÛÆ§\næÅ~ýôÓJ\u000eo\u0004-v\\\u001dg\"eÔv`d_·ök¾ù£\u0017x\f½1\u0016SM¹;àþÀ¾Ò¥fÆM.Øé\u0018!5\u0005Û_&(k±ÓÎ\u0017ì[ÖñÊD×Ù)<K¢\u0017w®HfI4\tÝ*#ûõZö\u0013ªåQoæÜ E®Å¾uë\u0016>'1²§Q6\u0006#¯(\ràÛüó§ó\u0011Ù+àXL\u0012\u0001\u0015ØwïJ75v\"«¨eÇ\u001aòë¯[\u001aùÆ\rëÙêU_±OW~Â±ÄÄ\u0004\u0010¿ÿºléböå\u0017³\u0014\u001aÑñ\u0005ãl#êAdì{2Ø²%q|!¹$1Êgà\u001c9èqòGt\u0011Ë\u0016Ç²ô´\u0014þf5Û®)^ëgOðº\u0018l\u0000ÉZ¤¢9e@'''?Aí\u001a²\u0000wÛÖ­lë-.#uûv*~Êä­Ô´\u001fÎ?êÍ\u0005oÞ¸QÑ\u0014àÈ¾¨\u0002\u000b;½9wdÎÚxÌÍ\u0001ÜYà\u00107à£UÑyùáÃ\u0007/R3¤\rÔÕ¬¿©aGGG\u0017JJJ\u001aG /n§\u0005¥;Ô\"\u001fM0\u001dq;\u0006\u000e\u0004 õïØ/±õ´@]ä\u001dðEñQ´û:Ï/Àµ±tñì¨ftÛ1p\u0006²&ºGwKÚÀ½xñâ\u000f·lÙò^Ü\bêéÍ\u001bòx\u0002î\u001d\u000b çthyõW\u0019\u0000\u001eÅóçþÆ\u001dhìÖ\u0018Fã:ö#¹°ã5¤r\u000eúé´\u0016Ú\u0019üW*Î\u001bN\u0016ê÷ÄÎòåc¨kë?èÜªíâºyÓ&Ú¬Ùì\u001c7åÈÑJÍ\bnÇ8{ö´´\u0011jõWÿç\u0016x\u0012\u001d¾@\rz ç³Çñ\u001eÓ\u0017/zÛ1Ð±à\u0010\f ÛX\u001aMK]EFzúÁ©©ÍL\u0003¦%7nÜpIOÃy\u001b£ü=»}Â­\rÔqK{AiÞ¿níj¶ª\u001e;_ÄO\u000e\u0007djb\u001d[\u0018e ÇÇÙé\u0016¸6h¿°}ûö!Û-²mÛÖt ÕÛ\u001b\u000bOüX\u001bq½gÉ9%ÅJHá!gfÜ7§\u001eã®çÙ%a§^íRã¼éÎôtÝÀµ±#5õÚÊ+×%$$DÄÇÇGQÄPü_çN¡çjTauêÔ?§¹T4å1³´S\u0013Íçw¤IÅù\u001dFpÕ§pzÜ¿o7[±,ÁRØeìø\u001eÓå\u0004^Þ´é\u0015nÇÀ´÷ã>bôéÉªU­ÄêÖ­ÃêÕ«ËC*ðÄÄÄ¦X(êÂM=¼é&\u0006©¸±hùé§üJÃçÃ¶{^\u001eÙñ=0²ø<FÍ]\u0019éR#6Ñ`Ùõ¡N4r×ÎÁ­\u00049ý_ºt)ÛèîN\u001czÇ¥K\u001c¹ÅI\u0013TÄ¡~\"°\u0007\fnìÉÖ\u001aÙ\u0017ÉÛTÂ&\u0010^\u000bWÓ\u0018t\u0007Ë¤5,ÜÛiûþ¤7ÁVüì¸×^co¿õ\u0016ûê¿ÿÍ\u0017dØÚ0çi+¼T\u0016%³yud¿^°ùö1\u000e\u001e#÷Ý»1\u0006<)1µiÝÚ-p©È)\u000f~\u000f!g@.bú´iÔ\u0011ö;¶nÝº<ÜÆ\u001b;FpY°E¬ùzµGÜÒ/X° #rmÌ1}Gàe#G\u0006åÔ©yÃL\u001b»üÚ\u0019©R°#\u0011@W©û{\u001beìÞzã5V¡\\qÿ#§x\twÈµØ×®ýNÉ¨\u000eðtå i«ó¬=/¬eTB&\u0006»ÞÌ½gÍÆê×«Å\u0014¾ßÇÅÅ\u0015Ô\\ÄéÓÙ÷ß¯U\u001dQÌ\u0003/^<oZìhIa5ì+?ZÂ¯ñ=8Cí.2iëÞ\u0013îïÖ¬a\u0013ÞzÕ«\u0013;`Èiûþv#ÈsÍÛ\u0015aG ¦YF¢JìË-}\u0011UW9#q\u0017z¨\u001f9|²;i|Q|÷âEìåF±NamYb\u0005oÂ\u001d\u0010äÏÐÂó×ÈÈ\bÃÈEL:\u0016¨ßKÝ\u0010B\u0017(\u0014ÿ Pâùûï¿¶·ìÔ#Úr #\u000eq#\u0016Ðï\u0017ÆÌò±ÿóÅÇJ¾\u000fñ\u000bc]\u000e\u0018ò¨\u0011ÑÑQg[·ÈE Ïþí·ßÒ.è\u000e/qïç¹XLW\\Å3gLÙP\u001cÞðed§î¾,\u001a\u001cÍ§NÎ\"bþ\u001býa¼\u0003ÿÙÊdº÷¨Ô¯;)1OGJ\u0014Ío>äZÜ²S\rBN|DÛ´ßÿ½îjDl\n¡Í\u001dpk`¿>²dpdçgVçº\u0006®\r¼\u0011ÐZ/ö/b\u000fÉMÙ~ºò#Ö¤Q\u001d[DC.27ì?ÿù\u000fKOw=º£\u0000_/îÜqäZ\u0019{\u001c\u0005ÚmèÁ}S\u0000{Ô,·§ðÓEæM\u0018ß}û\rk×æÁ\\¸U ¯Y35oÖÄ\u001aÈµñé§+é¤ýfM&å\u0000_\\z\u0007<w\u0018½eÍØ÷b\u001aã¤\u0010®käWÅx\u0005\\;!ìt;^ÎÇ]DE\\;äçnØ°¶a%\u0015p\n\\\u0016ò5BX£\u000f°'xåk§2éTidz¢\u001fû9óbÏÜ\u001d\u000bËðyS}\u0006Î§/\u0014«ãv­\u001b¤¬\u0012ÆºuíÄJ\u0015/è\u0012·\fä5jT§_ïgC\fÉ\u0001niäÏ?ÿÆíüzä×5õË¸p7bÞ4ßGqºZ&Þ4ë×­rFV\u0004\u000e\u001f?:°/á¾×#n_\u0003wÚ5Øc=\u000bwP \u0017ñÕWÿåN\u0015ØQw\u000bjÍÚ¢mû¶M¼\t·À1Ç9V¹ïãt\bbØ\u0013Ytãö\u0006y\u001aÕhjR\r\u001a4Ð)î B ZvJ=®áÕ`ÿÁ´JÀBØ\u000b×?zOgÐ\u000eæ'K<\u000ew\rþiV®ô}q\u001bE^±|IÖ§Oo·¸ýü×_gQQQì\u000f>P\\Ä%KØ&: ­b®.Fv3\u000b¤¥naè`µ«¹z8áN^\u0012ÏNþ \u000f÷yâ¼ñúXV¡l1¯qëE\u000eÜ½zõÐÛ¯Èß¢úrpAL\fínNeo¼ñ\u0012ä\"¨q\u0011Û¾=E\u0019vTÕùãYïÏ_þF\u0007TÖ±'ñ\u0011>\u001a\u001d­Yý%M%H=\u00115}ÚdV¥biq{B^¶tQ:ùÓÅ\u0010n¿\"gÂ\u0010.\\¸Í5½ûî»ìõqã¤#×fa¨gtäH_Ò%]>o(áïbûã?æìÔ¢Ò×öwÿüó\u000fËÊB\\ã¿^»vþÝßÒ²<áóç°!\u0015¥áv¼TÉÂvlç\u0015n¿\"øÞ{n!R-:A%¸\u0013Þ~[:òÿå×?e»wïò\u00197 R»²vZqrÝ\bvüY¼A\u001c?Vîâ2ãíï\u0000±l\u0001ô¾`\fgµkV[DÑû\b7EÙ2EYh¶>á|Á\u0018Få¶NøáÊð\u001a\r¤\u001d÷R?E£¸\u0001\u000eõêÊ\n\u0000×S=û\u001füÁû\u0001ê­Ç9A7={:\u0014;;;Ë-pmdg_ãG/îåÉKYÃú÷+Ã-â~z\u0003õéÓËkÐ/¾ø\"{þùçÙ°aÃä §â,>\n£ÄV3äSi\u000en\u0016ä\"\u0013óå_ð\"0=svq5·Ñzö3gNs('Eà÷øXÞ\rpzX\u001bS\u0011½¸oÆå\u0016û²eYÃ\u0007j)Ç]»VUÖÛàÒY¼üòË<Æ\u0019ÃF\u0018Á~úißkq»CÓ@fB®\rT=®Zµ÷\\ÄH\\LIp\u0000W\\Å­ªÖÝÛ\u0012b´­\u0001Ü\u0011ûµkÿÃ¾æÕ.ëKdFê\u0015Xî\u000fKhkÃ/ÈçÌmZäa&ÐîbÔÈg©°*\\\np\u0011xÃ¬_ÿ½%q\u0007\u001cùüùó-üo¾6ÜEWuàÿºñ\u001eÔ§í\u001aÖ¯Å\u0006ôëIURcQÞ©c[·ÅS2¢fH%Ö£G7é¸\u0003N\u000eY\u00069\u0016Ðññq}5_ \u0006\n6>7upeîÚ\\¯§T±1Q,.6Oa¼Á2ãA\u0003ú(Ç»{·®Êpû\u00159@O¦l\nv9\u0005òXZª\u0000ã¬3ùç\\DBB<aÿÆ¯ØÑ¶ÁHÿv\u0011ké4Õª¯¾äói=¸FüáD?Ü\u0015ãF&\u0005\u0019\u0015dVü\\\u0004ÒØìÁF\u00106~T G§.\u00118\u0010-\u0003»\u0016¹¤¤D~ØZå4\u0006¸ÑÙ×(nÇXºd\u0011\u001d'ãY\u0018g¸O^¶Õ«]MùÈÝíáâFæ\u0004\u0019\u0014dRáVÜ1T#\u00171eòdÞTÎX´(7*\u001b}\u0001½\u0019¹ÝÅw4ª?1d\u0010{uìhºf\u0007/ZóÍ*6îÕ1ìþ\u001aâ\u000e©V7ÞT=-q55\t(r\u0015Ø!G¼õæ|Êä\rvwÈE¬X±\nøºÌ ã|.\u0003ó6F¿0\\yD\u001bÕ*e;uô\u000bnÓ#\tÝ\u0015rGì:ÉD]À7¹\u0000>%eáE¥\u0000y\u001a½aÒic\n'è&<þû\u0014\u001fF÷7Ç¿î7ÜU+ñ;nK \u0005Ý\u0013r\u0011ã¨\u0000lÊ)|wV\u0016rÄ{T#bîÜ9tØúKWÁà¿\u0003v\np\u0013èÔ2ÍU\u0000¼~3M¥\u0006ôï\u001dô¸-\\\u0006z½È_}õU\u001e¯Q¦\u00075í111Ò@\u000evQSéb/gK>r_¿àÉ-p\u0011\u00197®\u0019ñ\u0004üóÏ>eÍ\u001a×óË´ä¡.a\u0001Åm#w\\\u001b\u0013'Nt¿÷\u0015¹\b||üä +\u001d9pÜj\u0005¦^Ü©³Q\u001d½;a<\u001dX(\u001aô#·åxòë\bÈ¼yó\"\u0017\u0001\u0011\u0011\u0011Òk±ñÅ\u0017\u001c¤7¸\u001dGõUt¹ÁóÏ=ÇZSóù\u001fD»mò\u001cnË#\rÓ\u001b\r¥I&åB(\u001b¹\bjXÊË\u000fd#G Ë\u0011×Wä¸÷t8mz4iÒGe'r¬;¨kãMÊÌtØÝ\\\näÙT¤\u0006¤;½®`\u00013Fo\u0001\u001cQ¥R sûüÝwß¡}ETaúu\u0018OgCÅÈn%ä÷ß¦\u0018\u001fs´z§'HvíÚ5\u0017n\u00115«WÊS#·\u001eä\u001e.Y²­^½}MW® ,\u001cÁO\u001bQÄjÈEà'\u0012.\u000eKw\u001d9ó(Z\u0014÷êÕË)n\u0011ukäIÜî\u000bØÚ°$r\u0011¥Jâ?ÂQÃ`%ä9éFz£¢«À:êÜË7(Æ\u001fÏÂÂÂÜâ\u0016Ñ°~\u001dÓâ~üñÇ)gßõéÝ[9ò\u0017^x\u0006¬AúÁ¼páÂ9ñ\u0005;\u000b=¸E4kÒÀt¸ÑPàîM?\u0010²?ÇPú\u001ckÖ¤\u001eÊ:thÏBBª±*U*ñ\b\u0018rl­#s¡\u0012yµjÕØôÆ\u00025¯ oÕ¢i\u0016C\u000ee\u0006\u000eÌ[6ò!ôÓ\u0001¸Ë,Ú1\u0002ü=ê­ø\u0016^È#¥&\u001byùòåyÔ®]½L¥ZìªãëÀü:PÈÛ·kí\u00125êÄkTf]:±°í9BUÀ\u001f{ì1ºÓ¾ÏM¸¥!§ÿ÷F5jPû¹.q\u0006¹\blö Ö<66V:r\u0011\u001a5bÿþ÷¿©Xi¼2ä8õ\u0000vôñ7òÎa¡7á.]â^VÿûYn\u000fsx\bÇVÆ²b0áîûÈ#.qû\u001coÌ\u0016uê°·ßî\u0011·ék\u0003W\u001d¢D6r\u0011­[·âØU\"\u0017tßtúzü¼[×rp§>MiÞ³gÏ\u001cÜ\"°\bTÜ\u0013no\u0003w\u0007\u001e`\b÷-·ÜÂÃÒÈEàdO45\u0005\\\u0004rÍ(ÐR\\\u001de¸ª÷êÙÏµÛ´nÉçÂ¸E\f\u001e<Ø\u0012Èá\u000e*ä\"¼E^®\\9Ð\u0011ÝèÇø¸q¯)E.\u0002Ó1£Ø wÚ10g63rànK¸ÜqÇM¸\u000e9ÎÖ¯_=÷Ì3Êkçì8\u0000îºÚ\u0011^&r\u0011øø2·hÑ=¤\u001bù£>jJäÀÝ®A\u0003·¸\u000e92!%JàQµjUÖ¿_?öï±cu!/[¶¬!äÚxðÁ\u0007ùIï7ß\u001c¯\u000496h\u0010ß¸ð\u0005y³fÍøF»©³@jÏLÈ»oÛ¶¬}¡B\u001eq\u0007\u001drT\u001d\nä\"*T¨@i°Îì\u0015\u0002â\u000ey2e¼F®\rUÈsFUÂ>zôhÞ²Z/ò¦MÒ¦G\u0007\u000eÆ\bn\u0011\u0003\u0007\f0\u0005ràî\u0017\u001aÊB\u0014a­òåãç£&Å\u0011¹\blá·¤\u001fÓ/\u001aå\u00149þ»\fä8\u0017*³©@.¢_ß¾ì¹geoSï\u0018WÈ»m6¬g\u001e^á\u0016\u001dHi@Zâ¿#\u0015?«\n9pwÐàÎ³È15q\\DÉ%YÆéâ¥'8ì¢E²ûî»ÿ{\u0019È\u001dwKß4KGî8º£w\b*è\u0000\u001bÓ'Ü¾â\u0016i3Üx£9þY\u0015ÈáÎ³È±Sé\t¹«(X° +^¼¸tä\"&Ð¢xÖLº>&Z:rÕ\u0001ÌZÜ@ïêÏÊDÞ½}{Ö^\u0013WÀó$òh®ê-òüùóó¸÷Þ{}ºx*ÛEk:lå[\t¹È»Ã-\u0013¹\u001eÜy\u0016ù¨#}Fî+v½5êÀn%äzÃ'ä4Å\u001a@Y±G\u0015Ó\u0005<O\"\u001f>|¸4äÞb×\u001cñüóÏñêÊ¼¼\u000fá\u001eDU \u0011n\u00116r\u0017ñ\u001cB\\]ÏâÔ\bòîÝ»ñ\u0000v,Nó\frJ\u0005ö§ìO\u001f\f¢[ÛFî!¡\u0013>ªPÜ\u0013ö`B>2[\u0003 ¶ëDþäOZ\u001a¹\u0016{DDxP!\u001f@©M=¸mä\u001e\u0002µ$x+UªÄw3­\\ÄðáÏó.]ÎòÑVA>röý\rà¶{Ç)Íå\u00175,Ê+óú\u0014Ì«­\\\u0004êÙÑõJì*ú\u001aø>¢_È½Åm#÷\u0010Øùs\\D*U8v+!\u001fK;¹\"¤VÞ`\u0017\u001b:c^z)çc©@> eKÖÏ\u0007Ü6r\u000fÍ\nOÈµØRìVAxåWøs½e²ÏR\u000b*\u0018\u001d?LÜ};vd\u0003\u001dÒ6r\u0005È\u001f¡\u0011N/rGì²£R\u000eçBU\"×¸\"\u001bS\u0010ÄQ5ü\u001e{\u0006Î`«B.\u000b·\u0019''/ãmõ0 ÚTÈ±±`\u0014¹\bä¢\u001aÑWä\"pV\u0012-éT#÷%dàîNUíi\u000b>\u00187oÞwi\u0000lm\n9ªî¼E®\u0017»Ñm~´j{Ã\u0005v+#ïÞ®\u001d\u000b-]:\u00077iÒÿôsÄmJä=$ ×bG\t®¯ÈEtïÞz§ãõæVFîÛÊÈ\u001b5lÈK®]á6%r@Ü\u0015v_Êp+V¬ÈúÓ\u0001\u0003\\\u0014VBÞÃ\u0005n+#÷Û¯È£££y@ \u0017\u0001¤èL¡\u0015\u0002;rÕ\u0003èh÷¤\u00139\u001d)åê\t\\RÃOÜ¡kÂ'â¨À¨.ë¨\u001c®aD÷Ý_ÈqÀ¹9mâ¦¯ï_t\u0002þVÂ¡\u0017\\rW[4ß;g\u000e\u001d-äs\nÑhà\u0004\u0011B\u0006v \u0017á\u000e»jäÀüøºèeÉ\u00156ò\u0017\u0003ßº\u0019õØèÓ\räÏR¿\u0015!]Ü\u001dvUÈ»Eóæ¬0MÃ\u001cqÛÈM\\\u0004JTãtDâ,Ô­¨Bî\u000bvgÈE íx\u001d{eÈQ#ï\n·ÜÈ\u0011\u000bi\u001a.Vmh¢C!ViÊ\f \"Q\u0015ro°»C.\u0002\u0018¼q\u0012\u001fZ2pc\u0014_'à6r\u0013\"¥)ZÅ!ÐL¨#e\u0006\u001cËl\u0005@oGwOÈEÈB@kg\u0004²L¸±Ù\u001bì\u001d\u0016ÖT¯Æ*Wª¨\u000b¸ÜÈc\b@.bÜ¸qìá\u001ff\u0015)ßí¬áQðD.\u0002Y&4\u0002Å×æ\t7³ÚµmÃªT®+lä\u0016EÖÍÈE\u0000\u000bº³Ö\b\tqZOn%ä\"eB{\u000bÌß\u001dqã²/à®Z¥òMÀmäúã§\u001fª8M\u001c×ú¹B®\u0011T¡6jVG®\rd> ,\u0013¶©4jè\u0014¶\u0015÷¥LOGÊÑ«B^µjeÖ¾?\u000f=ÔÅ%nTp¢Ï\fRÒ\béÈq\t§{\\\u0005.¡Õ\\D0!\u0017á\t·Y÷¥¢¸°ýK÷çÓü®»îbuèJÚµïgíÚµe½ÑÑ÷\u0006^g#7¿¿èÆW\\lì`Ws&Ý£Åî4\"f6rk!ïG¸;Ýy§aÜ£Î\b½êQ\u0005êV\u0004îï\u001cI\r©0µ\u001bD§Ê\\ý9eÈµadcÈFn\räý}Äí\ny\u0002\u0005Ø\u0003tëvÄö5Ì¦96rs#ïçå´Ä\u0013ò;é\rÛ?ú TA\u0012nS\"7w®räÈ»£Ý³Ü\u0018ò~´I&cäv\u001c¯ÉÃtqlÜ¦DAÕÈQ_\u000e 8ñVÏØ\u001a·»FÞpwQ[Diú^«ÂmJäîòä²ÀZøûØÎ·ÿ/\u0006\u00007e6TÀ®Gq\u001fàé×.9ÉSÈ±9âoäà1ºë¹\u00174Ø£Ýò@Æõ¡l$Î¹\u001dq\u0017Õ,2«Óï{vêd\u0019ä\u0017è\u0005NHHhä\u000br>/§Åç»7®;T\\Æa`D®2\u001epÀ-¢\u0014Å#EAnûÙg¡ªÍ>~ê©§>£ s}ÑO\u0012òTý,À\u0005Å¿ó\u0015¹¶`÷ÏFnmä®pçäÂi:æ¨/¼0*'|ENMc×Á!µ\u0001¯N'ø·Ò1Å¬|²\u001f\u0019Èµ\u000bÑ)'»Dé\u0005JpÑEËFn\u001eäp#JÐô¨W¯¹Ë@N?\u0015ÎçSýÈD®-Á=k\u0016ûàý÷s!×Ã\\\u001bÝ´|Azuì µ£íîæî6rçÑ¢¸\u0007ÜE\n\u0017âu'¸e!§iJ6í¾Õ±cè©æÍ\u001fÌnÚ´\t³\u0004ò\\å¸11l\u0016À;ç\t»;¼!Tá(`âªðèjoñÚÈ}Ç]v2ÛÓÍ\u0014w»\u0002î+ò®koÝº\u0015\u0003lmX\u000e¹6Ü²®°»û;(\u0004rvf\u0013[ÌÕ«W·{»À=÷pÜ#GpÛ\u0017ä8oà\fwP G\u0017«!Ô\u001d\u00168õbw¼A\u0006n±â\u0000CÝºuó<r=¸ï¦Ee\u000bºA{Äáºp{¼[7÷¸\u0006¹±ÔÁ\u0014}[jÕªå²!»©\u0007\u00025êzÐâøZXXXC\u000eÜÅ<à¾rì¸QÚ1k¢\u0002¹'Ü~E\u0005#\n!5¨\n¹6Pzo´ÑlIsjï \u0017®°:rìL&À·ºÁ}\u0007\u001dhÜ¸\u0011Ïw{[/r\u0014pµo×U®XÚ\\ÈU÷Ô?\u001c'DÒè¬\u0017y«V­\fáEc\u001fÚ|à\u001d\u0006\u0011y\u0013\u001d¸o»í6ÂÕ¡üô0p{B\u000eÜ­Z<ÈÊ)Æ\u0014ºik\u0003§PC®\n¹g¨i\u0011j=!G+\f#È±à\u0011\u0017\u0002\u0007-(¬¼\u0019Ey\u0000vûÖ[oåq¬dàv\u001c\u001b7ªÏJ(ÛRÈE \u0013DFÀùIWsv\u0004²\u0000Þ\"×\u0006\u000eÏâ\u0003«!oNQâv\u000fónà~üñÁRq;\"ïFßÇzuj±b÷å¿\t·%ãr¨[Q\\Ä@jáæ,ÓÒîÍ\\\u0004:ß¾D\u0017Y\u001d9pW¤¸Ã\u0003îjÕªòcf*pèÔ)T«È\u0016¾Û%î#9}úÉ'ò\u0016;*\u0011U#G >naÃ.§·srOÈE\u0015yKj\u0014wzÀ4,ÚÝ©Ä=xð vÍª\u001ea\u0002¹xæÌ9.'úÅ(r#Ó\u0016_k\u0003\u0015kx!1oW\u001c_×ìÙ³ù\u001bØ\u0017ä\u000fÔ«Ë?\u001eî\u0004½Ñ4Çkä5)î6\u0001î¡C°úõj\u0019Âm\u001aä9ØçÌi4cÚ´U¹ª\u0007y\u0004\u0015eù\u001byÎÈNØU \u0016£\tôwÐÁÀ\u001dvg¸kß_g\u0017p:Ý¡3aäÀ}\u000eÜj©ÄýÔSÃX³&õuMKL\\ûÌ>ýñiÓ¦m&ðºBn$Û\"\u0013¹\bÞ1àw \u0017î½¸\u000fu8î×\b©î\u0014·7ÈëP\u0014Ô»RÜÏQ\u001e½uË¦¬Xü^ãÖvC³i\u0011ûE¾@=fEÎ«\u001ecc\u0019­+Ø\u001bíéd#\u0017+\u0014±o=\u0003-r´{Ã\\á6\u001c§q\nëÀÝ¯ZÜÃi\u0007´Cû6¬d±{}Æí\tyË-²©ÞhcÀpÓe¬ù©æ7\u001eWh\u001c1½J[ä(\u0015ÈÃ\u00034]Ñ\"×Þu\u0004ìªk\u0003Uè ÖÊ\u0005^ ¾æ:\u001bYº{(j{wã|>½âFí\np*.\u000f·+ä7Fîõôõß\u001a\u0010Ü4\u000f-C§}^¢\u001bçqÜI\u001bè[\u0016_èòj\u00049z'¢\u0015²*äÚ»°p|ÒªÐÛ©Õ\u0015òÛ)ªRå_·Ö­YG:TRÊ\u0005îÞ½{)Å=jÔ\bÖ¥sGV¶t\u0011é¸µÈ©fvÈ\u001a8pàWù\u0002ý\u0010c¸RÛ\u0011¸cD\u0012\\£B\u0012±»½$¦\u0013Q4µ@'Z4Õ7\u0013òÛë¾ûnÖî\u000eÂÔ\u0003ñ\bí\u0016Ö¸ýv?ã\u001eI\u000eS«ír%á\u0016\u0001å&æ3ËóêØ±èÜ]¶'äQ^ ×N/¦ÒN\u0015rÇ\b4ò[nLG*Ó\tûhä\u0016¸µ\u0011J\u0017ºâàõ\u0005ì(¥\u0001Ü(R»zò×\u001eîÚ)6\u0019\u001fæ§z_D÷Qg\u0011ãÅö¾³ÓCÓ¨É=Rv*¿I\u0007*èÇdÀ;Cí,Tãî×·7«Z¹¬rÜÕª»\u0016\u001aÚvQ>³?4ÚÞAØ_¡\u0005Ý%ljÜJ»²$Óé\\ÞÄ_\u0001r\u0011\u0013n\\\u0010Ð­[·<\u001c¸«W-§\u001c7½\bwÅù¬ö$%%å' ¯M\u0001vÍÈnd[ß\bvÌ£õ`÷åó \u00137.6R\u0011ùÐ¡ó\u001cwå\nÅYé\u0012\u0005ý»sçÐä|Vhd/D@&ÐÂñ*ÍÙ½jÞ¯ûv9úØs(Kò.6{\u0014 \u0017\u0003f¯S¦èiª5GEÕ?õÔ\u0013¬eó¬LÉ»@NØ#·ñ\u0014cAì\u0014¨B®8:è¢òQ6ò\\7gP:\u0014¹«\"þ¹gYÛÖÍ\b÷½¹p«B\u000eÜÝºv^/ØÄÄÄ¢\u0004ä\u001dóª±\u0006F¸þ\\\u0005r\u0011Ýi®>Ò§/Óµ2¿4z4?¤\n9NÖSöÒEâ¼J¥2Á1-ñb\u001aSL¦¸ì\u001d£.v\u001dU||ôo\u0011Ñ®\u0007¡ü.?xm\u0014ù1cøé#½¸½A> \u001f\u0016R¥[Ü²çYÜ\u000f\u0001,~\u0003û\u0015ìªk\u0003\u000bTÜdç\u000eùh\u001aµqÊh\u0004@\f Ã\u001eF\u001bA>tÈ`]¸}E^©|©¬¡í>¦÷|ö»,ÀÌ¥¸\u001a,ÈE`q)\u00169p½\u001b¹xopëEþ\u0004eM\u001a5¨ÃË^U\"\u0007nªcYnãöz,qcd¿\u001a,È\u0011hqö8Õðpà\u0014x;rëEÎq7¬«¦[\u0005r{äö~\u001aS\u0000ERü\u0015\fÈEÈ@í\tù°aCùb÷Ýs\u0013HÈ¯Ü­Ú¸%`§Cþ\f\u0006äºÈF¢©ç¨Å]ïÞÝÙ\u0003uk8Å-\u00139Õ¯dÝXPÚ¸e>©\u0012E,ÅßVFæ¢²pRîÙØ¶»/È++9÷\n\u001b·â¶ð+Þ¸Úå\u001fÕiG\u001ccC >ÆLÈ½Áí\u000brà¶çÜ\u0001\u001aÙUbÇA\ní\u0001·h#\tàQ#\u0013(ä¾àö\u0006¹ÀMû6[\\`³1°]}\u0019«cq\u0000?vQE±jä2p\u001bA^¶d¡ì\u00074Ødã6\u001föZ\u0004.I\u0016v\u0010òt\u001f#;.øR<¬c\u0007VµÜ:nW°K\u0015/ÀÊ¾/»UËf_S7[mQæÎÆÜ/\u0003;N!éíÏCÛ*«¨\u0000t»,ánÙ¼ÉZºKév[\u001e*\u0004«GàW\u0012ØlokÔ4\"B\u0013P=ÈqLÍ\u0015ê={ò¦¤Íè\u001cg£F\"/U<?+_¦HvÖÍ>£o=-±x6¦\u000e¡]a\u0014;²+F£\u0013\u0001\n¬p\u001b»Fòä\u0018Ýq#]C:¯©\r\u0015ÈK\u0016ËO=Àf·oÛr5½î°\u0004ÙÈn\u0014;À\u0002®^ä¸Q\u000e«¡CòSCîã;tèÀGmGà*W(W\"»}»V«lÜÁ?goFiÇ/ô GïD\u0004úÆ  J/r\u0011¸¡\u0002W¿à®#\u001c\u001f\u000fÀ;wîÌï0r[6r\u001bw\u001e}\bzK¼F\u000fr\u0011èÝ=º_!¨\u0007¹6\u001d·*`tÇ}GîpËBN¸³Ú¶iiÏ¹í}a\u000bW#»#r\u0011¨\u001eÄálÜ\u0001ª½üVOèÁí+òr¥f·nõà7öÈm?¹\u001eBÝb­\u001eä\"0í@É¬§QÜ_ÈË-M#÷çôåØ©@ûq»@mO#û\u0006=Èµ\\9®V\t\u0004rÜ­Z4ý¢víÚÿ²_AûÑýÐ}«±cÇþy¸\u0011ì¸-\rT \u0017Ó\u0012\u001b·ýøôP½\u0017\u001dQ»óF°«DNw]f·kÓâK{Îm?R©S§>I\u0019¿ôbW\u001csnÚÄùÌ\u001e¹íGéCéÃ·©'Ê?Xt:Ãí}Z¢ùy\"m\n££ØA=Y.bÈ(ò\u0012E\u000b°Ú5«ò¦<vU ýøõ¡ÐWhd?M¨³hÞ5lØ°³4­ù1æö`\u0011äô1/Óº`]\u0015h?z<ÁÆ\u0016Û¶m³¨9j²Û~\n9p^£Ñ;ÊÆm?A\u001cõ+]ºtù:þÎµqÛOP!oÚ´)\n·®ÒÜ~²Û~êiÙ²%²0ç(Ó2Úþnøçù·u\u001bä=g\u0000\u0000\u0000\u0000IEND®B`",
+      "info": {
+        "size": 10719,
+        "last_modified": "2025-12-18T22:35:25.774497",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    },
+    {
+      "path": "items\\ender_bow.json",
+      "content": "{\r\n  \"model\": {\r\n    \"type\": \"minecraft:model\",\r\n    \"model\": \"cmitems:item/ender_bow\"\r\n  }\r\n}",
+      "info": {
+        "size": 94,
+        "last_modified": "2025-12-18T22:35:25.7840885",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "items\\lightning_stick.json",
+      "content": "{\r\n  \"model\": {\r\n    \"type\": \"minecraft:model\",\r\n    \"model\": \"cmitems:item/lightning_stick\"\r\n  }\r\n}",
+      "info": {
+        "size": 100,
+        "last_modified": "2025-12-18T22:35:25.7921158",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "lang\\en_us.json",
+      "content": "{\r\n  \"itemGroup.cmitems\":  \"Cm Items\",\r\n  \"item.cmitems.ender_bow\": \"Ender Bow\",\r\n\r\n  \"item.cmitems.lightning_stick\": \"Lightning Stick\",\r\n  \"itemTooltip.cmitems.lightning_stick\": \"§6Summons lightning where you look\"\r\n\r\n}",
+      "info": {
+        "size": 221,
+        "last_modified": "2025-12-18T22:35:25.8051682",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "models\\item\\enderbow\\ender_bow_pulling_0.json",
+      "content": "{\r\n  \"parent\": \"minecraft:item/bow\",\r\n  \"textures\": {\r\n    \"layer0\": \"cmitems:item/enderbow/ender_bow_pulling_0\"\r\n  }\r\n}",
+      "info": {
+        "size": 120,
+        "last_modified": "2025-12-18T22:35:25.8197653",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "models\\item\\enderbow\\ender_bow_pulling_1.json",
+      "content": "{\r\n  \"parent\": \"minecraft:item/generated\",\r\n  \"textures\": {\r\n    \"layer0\": \"cmitems:item/enderbow/ender_bow_pulling_1\"\r\n  }\r\n}",
+      "info": {
+        "size": 126,
+        "last_modified": "2025-12-18T22:35:25.8278247",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "models\\item\\enderbow\\ender_bow_pulling_2.json",
+      "content": "{\r\n  \"parent\": \"minecraft:item/bow\",\r\n  \"textures\": {\r\n    \"layer0\": \"cmitems:item/enderbow/ender_bow_pulling_2\"\r\n  }\r\n}",
+      "info": {
+        "size": 120,
+        "last_modified": "2025-12-18T22:35:25.8350104",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "models\\item\\ender_bow.json",
+      "content": "{\r\n  \"parent\": \"minecraft:item/generated\",\r\n  \"textures\": {\r\n    \"layer0\": \"cmitems:item/enderbow/ender_bow\"\r\n  },\r\n  \"display\": {\r\n    \"thirdperson_righthand\": { \"rotation\": [ -80, 260, -40 ], \"translation\": [ -1, -2, 2.5 ], \"scale\": [ 0.9, 0.9, 0.9 ] },\r\n    \"thirdperson_lefthand\": { \"rotation\": [ -80, 260, -40 ], \"translation\": [ -1, -2, 2.5 ], \"scale\": [ 0.9, 0.9, 0.9 ] },\r\n    \"firstperson_righthand\": { \"rotation\": [ 0, -90, 25 ], \"translation\": [ 1.13, 3.2, 1.13 ], \"scale\": [ 0.68, 0.68, 0.68 ] },\r\n    \"firstperson_lefthand\": { \"rotation\": [ 0, 90, -25 ], \"translation\": [ 1.13, 3.2, 1.13 ], \"scale\": [ 0.68, 0.68, 0.68 ] }\r\n  },\r\n  \"overrides\": [\r\n    { \"predicate\": { \"pulling\": 1 }, \"model\": \"cmitems:item/enderbow/ender_bow_pulling_0\" },\r\n    { \"predicate\": { \"pulling\": 1, \"pull\": 0.65 }, \"model\": \"cmitems:item/enderbow/ender_bow_pulling_1\" },\r\n    { \"predicate\": { \"pulling\": 1, \"pull\": 0.9 }, \"model\": \"cmitems:item/enderbow/ender_bow_pulling_2\" }\r\n  ]\r\n}",
+      "info": {
+        "size": 975,
+        "last_modified": "2025-12-18T22:35:25.8470566",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "models\\item\\lightning_stick.json",
+      "content": "{\r\n  \"parent\": \"minecraft:item/stick\"\r\n}",
+      "info": {
+        "size": 40,
+        "last_modified": "2025-12-18T22:35:25.8540851",
+        "mime_type": "text/plain",
+        "extension": ".json"
+      }
+    },
+    {
+      "path": "textures\\item\\enderbow\\ender_bow.png",
+      "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0010\b\u0006\u0000\u0000\u0000\u001fóÿa\u0000\u0000\u0000\tpHYs\u0000\u0000\u000eÄ\u0000\u0000\u000eÄ\u0001+\u000e\u001b\u0000\u0000\u0000fIDAT8Ë½Á\u0011À \b\u0004O+°=*¤=:8_y$\u0002qF^ÌÈË\u0003`³Zqo\u0015Ha·\u0007ÁX\u001aÐCÞ\u0000¨0^½3a¤üÀpÚgà\u001e¥*Ñ~\u0005DðR?³ó§Aåç¾\u0003¿\u0006TàèÒR5\u0001tA?}5)\u0000\u0000\u0000\u0000IEND®B`",
+      "info": {
+        "size": 180,
+        "last_modified": "2025-12-18T22:35:25.8726648",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    },
+    {
+      "path": "textures\\item\\enderbow\\ender_bow_pulling_0.png",
+      "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0010\b\u0006\u0000\u0000\u0000\u001fóÿa\u0000\u0000\u0000\tpHYs\u0000\u0000\u000eÄ\u0000\u0000\u000eÄ\u0001+\u000e\u001b\u0000\u0000\u0000IDAT8ËS¹\rÀ \f<\u0010]\u001a&HRg\u0002ÔN\u0011\f1\u0006N²\u0010{Ì\u0003¼ \\Ë°|\u0012F\"Ô\u0014\\^0\nAµ\u0010àÉH\t\u0002¼)DN\nð­¸ùÙ\u001dûFYè\u001b¥3ÒÚ%.\"màd+õ{^·Øó\f*çDmT5º\u0014Hd;o¤ëlgú*\"eß;\u0007\u000e§9G$Ò\\»\u0002ÍÄÀ+Ff\u0005\u000f>a`KK\u0007Z\u0000\u0000\u0000\u0000IEND®B`",
+      "info": {
+        "size": 231,
+        "last_modified": "2025-12-18T22:35:25.8791883",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    },
+    {
+      "path": "textures\\item\\enderbow\\ender_bow_pulling_1.png",
+      "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0010\b\u0006\u0000\u0000\u0000\u001fóÿa\u0000\u0000\u0000\tpHYs\u0000\u0000\u000eÄ\u0000\u0000\u000eÄ\u0001+\u000e\u001b\u0000\u0000\u0000IDAT8Ë¥A\n\u0003!\fE2»Ùx®{%Oèõ¼AºéHp~ªL?\u0004÷ ð§ËM)¯¿\u0001\u001aJIA\u0001>òJáð´F7\u0005ôªhá`_P\u0014ã\u001e@\u0006uÎiå\f0×ìòÊsä|-2Hw7»Ú\t\nWÔU'y§5\u000fÞÈ\u001e`\u0006mÏ¯v0ëøñ\u000elå*\u0001»7½_§=ùÎ\u001f\u001d\u0007PbQ;0\u0000\u0000\u0000\u0000IEND®B`",
+      "info": {
+        "size": 226,
+        "last_modified": "2025-12-18T22:35:25.886227",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    },
+    {
+      "path": "textures\\item\\enderbow\\ender_bow_pulling_2.png",
+      "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0010\b\u0006\u0000\u0000\u0000\u001fóÿa\u0000\u0000\u0000\tpHYs\u0000\u0000\u000eÄ\u0000\u0000\u000eÄ\u0001+\u000e\u001b\u0000\u0000\u0000IDAT8ËÅRA\u000eÀ \b«d·]ö÷¥½Ðïù\u0003v\u0011\u0004=­\u0011J\u0004þF19;ç\u001cñ]\u001b\u0007$\u001eAj>¸Î+\u001a\u0003x÷`¹à¦É.ú=È{Âý°»änwëÕðJwR,Á2K\bÍ¼+\u0012¡Ùáh\u0011\u0004¬`­eK\u001e\n\bÑ#¤ÿ`ð\u0000°eErVõSY\u0000\u0000\u0000\u0000IEND®B`",
+      "info": {
+        "size": 211,
+        "last_modified": "2025-12-18T22:35:25.89326",
+        "mime_type": "image/png",
+        "extension": ".png"
+      }
+    }
+  ]
+}

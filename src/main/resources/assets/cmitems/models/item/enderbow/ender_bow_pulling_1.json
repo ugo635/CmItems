@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "cmitems:item/ender_bow"
+    "layer0": "cmitems:item/enderbow/ender_bow_pulling_1"
   }
 }

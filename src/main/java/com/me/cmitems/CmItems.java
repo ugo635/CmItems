@@ -14,8 +14,9 @@ public class CmItems implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LightningStick.register();
 		EnderBow.register();
+		LightningStick.register();
+
 
 
 		CustomCreativeItem.register();

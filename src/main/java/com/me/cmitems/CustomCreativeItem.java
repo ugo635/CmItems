@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -23,7 +24,14 @@ public class CustomCreativeItem {
             .build();
 
     public static void register() {
+        Registry.register(
+                Registries.ITEM_GROUP,
+                CM_ITEMS,
+                CUSTOM_ITEM_GROUP
+        );
+
         ItemGroupEvents.modifyEntriesEvent(CM_ITEMS).register(itemGroup -> {
+            System.out.printf("Added %s items to the Creative Menu%n", CreativeMenu.size());
             CreativeMenu.forEach(itemGroup::add);
         });
 
