@@ -17,7 +17,6 @@ public class CmItems implements ModInitializer {
 		LightningStick.register();
 		EnderBow.register();
 
-		// Client-only tooltip registration moved to CmItemsClient to avoid importing client classes in common code.
 
 		CustomCreativeItem.register();
 	}

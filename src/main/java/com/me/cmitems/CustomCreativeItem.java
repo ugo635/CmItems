@@ -19,7 +19,7 @@ public class CustomCreativeItem {
 
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(Items.DIAMOND))
-            .displayName(Text.translatable("itemGroup.fabric_docs_reference"))
+            .displayName(Text.translatable("itemGroup.cmitems"))
             .build();
 
     public static void register() {

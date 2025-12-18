@@ -7,6 +7,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -16,8 +18,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.List;
+
 public class LightningStick extends Item {
-    public static Item LIGHTNING_STICK = ModItems.registerLightningStick(
+    public static Item LIGHTNING_STICK = ModItems.register(
             "lightning_stick",
             LightningStick::new,
             new Item.Settings().maxCount(1)
@@ -35,7 +39,6 @@ public class LightningStick extends Item {
     public boolean hasGlint(ItemStack item) {
         return true;
     }
-
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
