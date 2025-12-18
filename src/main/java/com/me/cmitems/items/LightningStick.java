@@ -4,6 +4,7 @@ import com.me.cmitems.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -20,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
 
-public class LightningStick extends Item {
+public class LightningStick extends BowItem {
     public static Item LIGHTNING_STICK = ModItems.register(
             "lightning_stick",
             LightningStick::new,

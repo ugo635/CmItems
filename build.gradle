@@ -24,7 +24,6 @@ loom {
 	mods {
 		"cmitems" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 
