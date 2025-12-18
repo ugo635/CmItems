@@ -1,4 +1,8 @@
 {
   "itemGroup.cmitems":  "Cm Items",
-  "item.cmitems.ender_bow": "Ender Bow"
+  "item.cmitems.ender_bow": "Ender Bow",
+
+  "item.cmitems.lightning_stick": "Lightning Stick",
+  "itemTooltip.cmitems.lightning_stick": "§6Summons lightning where you look"
+
 }

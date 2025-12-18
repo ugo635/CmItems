@@ -1,6 +1,7 @@
 package com.me.cmitems;
 
 import com.me.cmitems.items.EnderBow;
+import com.me.cmitems.items.LightningStick;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -13,6 +14,11 @@ public class CmItems implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		LightningStick.register();
 		EnderBow.register();
+
+		// Client-only tooltip registration moved to CmItemsClient to avoid importing client classes in common code.
+
+		CustomCreativeItem.register();
 	}
 }
