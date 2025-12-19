@@ -5,6 +5,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
@@ -19,6 +20,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,19 +28,19 @@ import java.util.List;
 import java.util.function.Predicate;
 
 
-public class EnderBow extends BowItem {
-    public static Item ENDER_BOW = ModItems.register(
-            "ender_bow",
-            EnderBow::new,
+public class TntBow extends BowItem {
+    public static Item TNT_BOW = ModItems.register(
+            "tnt_bow",
+            TntBow::new,
             new Item.Settings().maxCount(1)
     );
 
 
     public static void register() {
-        System.out.println("Registered Ender Bow");
+        System.out.println("Registered Tnt Bow");
     }
 
-    public EnderBow(Settings settings) {
+    public TntBow(Settings settings) {
         super(settings);
     }
 
@@ -97,21 +99,13 @@ public class EnderBow extends BowItem {
     ) {
         if (!(shooter instanceof PlayerEntity player)) return;
 
-        EnderPearlEntity pearl = new EnderPearlEntity(EntityType.ENDER_PEARL, world);
-        pearl.setOwner(player);
-        pearl.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
-        pearl.setVelocity(
-                player,
-                player.getPitch(),
-                player.getYaw(),
-                0.0F,
-                speed,
-                divergence
-        );
+        Vec3d look = player.getRotationVector().normalize();
+        Vec3d spawnPos = player.getEyePos().add(look.multiply(0.6));
 
-        
+        TntEntity tnt = new TntEntity(world, spawnPos.x, spawnPos.y, spawnPos.z, player);
+        world.spawnEntity(tnt);
 
-        world.spawnEntity(pearl);
+        tnt.setVelocity(look.multiply(speed * 2));
 
         stack.damage(1, player, LivingEntity.getSlotForHand(hand));
     }
@@ -128,30 +122,8 @@ public class EnderBow extends BowItem {
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 72000;
-    }
-
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW;
-    }
-
-    @Override
-    public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        boolean bl = !user.getProjectileType(itemStack).isEmpty();
-        if (!user.isInCreativeMode() && !bl) {
-            return ActionResult.FAIL;
-        } else {
-            user.setCurrentHand(hand);
-            return ActionResult.CONSUME;
-        }
-    }
-
-    @Override
     public Predicate<ItemStack> getProjectiles() {
-        return stack -> stack.getItem() == Items.ENDER_PEARL;
+        return stack -> stack.getItem() == Items.TNT;
     }
 
     @Override

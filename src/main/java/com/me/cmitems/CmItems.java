@@ -2,6 +2,7 @@ package com.me.cmitems;
 
 import com.me.cmitems.items.EnderBow;
 import com.me.cmitems.items.LightningStick;
+import com.me.cmitems.items.TntBow;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class CmItems implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		TntBow.register();
 		EnderBow.register();
 		LightningStick.register();
 
