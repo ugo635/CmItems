@@ -126,8 +126,4 @@ public class TntBow extends BowItem {
         return stack -> stack.getItem() == Items.TNT;
     }
 
-    @Override
-    public int getRange() {
-        return 15;
-    }
 }
