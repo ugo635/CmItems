@@ -2,6 +2,7 @@
   "itemGroup.cmitems":  "Cm Items",
   "item.cmitems.ender_bow": "Ender Bow",
   "item.cmitems.tnt_bow": "Tnt Bow",
+  "item.cmitems.gravity_bow": "Gravity Bow",
 
   "item.cmitems.lightning_stick": "Lightning Stick",
   "itemTooltip.cmitems.lightning_stick": "§6Summons lightning where you look"
