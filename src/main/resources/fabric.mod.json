@@ -17,21 +17,8 @@
 	"entrypoints": {
 		"main": [
 			"com.me.cmitems.CmItems"
-		],
-		"client": [
-			"com.me.cmitems.CmItemsClient"
-		],
-		"fabric-datagen": [
-			"com.me.cmitems.CmItemsDataGenerator"
 		]
 	},
-	"mixins": [
-		"cmitems.mixins.json",
-		{
-			"config": "cmitems.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.18.3",
 		"minecraft": "~1.21.5",
