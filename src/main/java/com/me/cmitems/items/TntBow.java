@@ -93,12 +93,12 @@ public class TntBow extends BowItem {
         if (!(shooter instanceof PlayerEntity player)) return;
 
         Vec3d look = player.getRotationVector().normalize();
-        Vec3d spawnPos = player.getEyePos().add(look.multiply(0.3));
+        Vec3d spawnPos = player.getEyePos().add(look);
 
         TntEntity tnt = new TntEntity(world, spawnPos.x, spawnPos.y, spawnPos.z, player);
         world.spawnEntity(tnt);
 
-        tnt.setVelocity(look.multiply(speed * 2));
+        tnt.setVelocity(look.multiply(speed));
 
         stack.damage(1, player, LivingEntity.getSlotForHand(hand));
     }

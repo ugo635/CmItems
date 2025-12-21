@@ -1,24 +1,20 @@
 package com.me.cmitems.items;
 
 import com.me.cmitems.ModItems;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-
-import net.minecraft.world.World;
 import net.minecraft.util.math.Vec3d;
-
-import java.util.List;
+import net.minecraft.world.World;
 
 public class LightningStick extends Item {
     public static Item LIGHTNING_STICK = ModItems.register(
@@ -29,6 +25,11 @@ public class LightningStick extends Item {
 
     public static void register() {
         System.out.println("Registered Lightning Stick");
+        ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, list) -> {
+            if (stack.getItem() == LIGHTNING_STICK) {
+                list.add(Text.translatable("itemTooltip.cmitems.lightning_stick"));
+            }
+        });
     }
 
     public LightningStick(Settings settings) {
@@ -48,7 +49,7 @@ public class LightningStick extends Item {
             return ActionResult.PASS;
         }
 
-        BlockHitResult hit = (BlockHitResult) user.raycast(20.0, 0.0f, false);
+        BlockHitResult hit = (BlockHitResult) user.raycast(500, 0.0f, false);
 
         BlockPos pos;
         if (hit.getType() == HitResult.Type.BLOCK) {
@@ -56,7 +57,7 @@ public class LightningStick extends Item {
             pos = hit.getBlockPos();
         } else {
             // Otherwise, teleport 10 blocks in the look direction
-            Vec3d look = user.getRotationVector().normalize().multiply(10);
+            Vec3d look = user.getRotationVector().normalize().multiply(500);
             Vec3d target = user.getEyePos().add(look);
             pos = new BlockPos((int) target.x, (int) target.y, (int) target.z);
         }

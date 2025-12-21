@@ -4,7 +4,6 @@ import com.me.cmitems.items.EnderBow;
 import com.me.cmitems.items.GravityBow;
 import com.me.cmitems.items.LightningStick;
 import com.me.cmitems.items.TntBow;
-import net.minecraft.client.MinecraftClient;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +22,7 @@ public class CmItems implements ModInitializer {
 		GravityBow.register();
 		LightningStick.register();
 
+		ModComponents.register();
 		CustomCreativeItem.register();
 	}
 
