@@ -23,7 +23,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -109,15 +108,9 @@ public class GravityBow extends BowItem {
 
     @Override
     protected ArrowEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
-
         ArrowEntity arrow = new ArrowEntity(world, shooter, projectileStack.copyWithCount(1), weaponStack);
 
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("gravityPull", getGravityPull(weaponStack));
-        map.put("uuid", arrow.getUuidAsString());
-        map.put("entity", arrow);
-
-        GravityArrow.arrows.add(map);
+        GravityArrow.arrows.add(new GravityArrow.ArrowData(arrow, getGravityPull(weaponStack)));
 
         if (critical) {
             arrow.setCritical(true);

@@ -1,94 +1,86 @@
-package com.me.cmitems.Entities;
+package com.me.cmitems. Entities;
 
-import com.me.cmitems.Register;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static com.me.cmitems.CmItems.mc;
 
 public class GravityArrow {
-    public static List<HashMap<String, Object>> arrows = new ArrayList<>();
+    public static class ArrowData {
+        public final ArrowEntity entity;
+        public final double gravityPull;
+        public final String uuid;
+
+        public ArrowData(ArrowEntity entity, double gravityPull) {
+            this.entity = entity;
+            this.gravityPull = gravityPull;
+            this.uuid = entity.getUuidAsString();
+        }
+    }
+
+    public static List<ArrowData> arrows = new ArrayList<>();
 
     public static void register() {
-        Register.onTick(5, args -> arrowPull());
+        ServerTickEvents.END_WORLD_TICK.register(GravityArrow::arrowPull);
     }
 
-    private static void arrowPull() {
-        if (mc.world == null) return;
+    private static void arrowPull(ServerWorld world) {
+        // Remove dead arrows
+        arrows.removeIf(data -> data.entity.isRemoved());
 
-        for (int i = 0; i < arrows.size(); i++) {
-            HashMap<String, Object> map = arrows.get(i);
-            ArrowEntity arrow = (ArrowEntity) map.get("entity");
-            if (arrow.isRemoved()) {
-                arrows.remove(i);
-                i--;
+        // Iterate through all entities in the server world
+        for (Entity entity : world.iterateEntities()) {
+            // Skip arrows & spawner
+            if (mc.player != null) {
+                if (entity.getName().getString().equals(mc.player.getName().getString())) continue;
             }
-        }
+            if (entity instanceof ArrowEntity) continue;
 
-        Iterable<Entity> entities = mc.world.getEntities();
+            ArrowData arrowData = getClosestArrow(entity);
+            if (arrowData == null) continue;
 
-        for (Entity entity : entities) {
+            double distance = arrowData.entity.distanceTo(entity);
 
-            if (entity instanceof LivingEntity livingEntity) {
-                ArrowEntity arrow = getClosestArrow(livingEntity);
-                if (arrow == null) {
-                    continue;
-                }
-
-                double gravityPullValue = getGravityPull(arrow);
-
-                double gravityPull = arrow.distanceTo(livingEntity) < gravityPullValue
-                        ? gravityPullValue
-                        : 0.0;
-
-                System.out.println("Gravity Pull: " + gravityPull);
-
+            if (distance < arrowData.gravityPull && distance > 0.25) {
                 Vec3d direction = new Vec3d(
-                        arrow.getX() - livingEntity.getX(),
-                        arrow.getY() - livingEntity.getY(),
-                        arrow.getZ() - livingEntity.getZ()
+                        arrowData.entity.getX() - entity.getX(),
+                        arrowData.entity.getY() - entity.getY(),
+                        arrowData.entity.getZ() - entity.getZ()
                 ).normalize();
 
-                livingEntity.setVelocity(
-                        direction
+                double pullStrength = arrowData.gravityPull * 0.05 * (arrowData.gravityPull - distance);
+
+                entity.addVelocity(
+                        direction.x * pullStrength,
+                        direction.y * pullStrength,
+                        direction. z * pullStrength
                 );
+
+                entity.velocityModified = true;
             }
         }
     }
 
-    private static double getGravityPull(ArrowEntity arrow) {
-        String arrUUID = arrow.getUuidAsString();
-        for (HashMap<String, Object> map : arrows) {
-            if (map.get("uuid").equals(arrUUID)) {
-                return (double) map.get("gravityPull");
-            }
-        }
-        return 0.0;
-    }
+    private static ArrowData getClosestArrow(Entity entity) {
+        if (arrows. isEmpty()) return null;
 
-    private static ArrowEntity getClosestArrow(Entity entity) {
-        if (arrows.isEmpty()) return null;
-
-        ArrowEntity closest = null;
+        ArrowData closest = null;
         double closestDistance = Double.MAX_VALUE;
 
-        for (HashMap<String, Object> map : arrows) {
-            ArrowEntity arrow = (ArrowEntity) map.get("entity");
-            double distance = entity.distanceTo(arrow);
-            System.out.println("Distance to arrow: " + distance);
+        for (ArrowData data : arrows) {
+            double distance = entity.distanceTo(data.entity);
             if (distance < closestDistance) {
                 closestDistance = distance;
-                closest = arrow;
+                closest = data;
             }
         }
 
         return closest;
     }
-
 }

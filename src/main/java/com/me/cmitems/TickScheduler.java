@@ -26,7 +26,7 @@ public class TickScheduler {
 
     public static class ScheduledTask {
         public final int tick;
-        public final Consumer<Runnable> action; // (() -> Unit) -> Unit
+        public final Consumer<Runnable> action;
         public int counter = 0;
 
         public ScheduledTask(int tick, Consumer<Runnable> action) {
