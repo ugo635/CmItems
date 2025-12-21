@@ -1,5 +1,6 @@
 package com.me.cmitems.items;
 
+import com.me.cmitems.Entities.GravityArrow;
 import com.me.cmitems.ModComponents;
 import com.me.cmitems.ModItems;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -7,6 +8,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
@@ -21,6 +23,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -63,8 +66,7 @@ public class GravityBow extends BowItem {
                     return false;
                 } else {
                     List<ItemStack> list = load(stack, itemStack, playerEntity);
-                    if (world instanceof ServerWorld) {
-                        ServerWorld serverWorld = (ServerWorld) world;
+                    if (world instanceof ServerWorld serverWorld) {
                         if (!list.isEmpty()) {
                             this.shootAll(serverWorld, playerEntity, playerEntity.getActiveHand(), stack, list, f * 3.0F, 1.0F, f == 1.0F, (LivingEntity) null);
                         }
@@ -92,11 +94,10 @@ public class GravityBow extends BowItem {
                 i = -i;
                 int finalJ = j;
 
-                itemStack.set(ModComponents.GRAVITY_PULL, getGravityPull(stack));
-                ProjectileEntity arrow = this.createArrowEntity(world, shooter, stack, itemStack, critical);
-                arrow.onLanding();
+                ArrowEntity arrow = createArrowEntity(world, shooter, stack, itemStack, critical);
 
                 ProjectileEntity.spawn(arrow, world, itemStack, (projectile) -> this.shoot(shooter, projectile, finalJ, speed, divergence, k, target));
+
                 stack.damage(this.getWeaponStackDamage(itemStack), shooter, LivingEntity.getSlotForHand(hand));
                 if (stack.isEmpty()) {
                     break;
@@ -105,6 +106,27 @@ public class GravityBow extends BowItem {
         }
 
     }
+
+    @Override
+    protected ArrowEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+
+        ArrowEntity arrow = new ArrowEntity(world, shooter, projectileStack.copyWithCount(1), weaponStack);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("gravityPull", getGravityPull(weaponStack));
+        map.put("uuid", arrow.getUuidAsString());
+        map.put("entity", arrow);
+
+        GravityArrow.arrows.add(map);
+
+        if (critical) {
+            arrow.setCritical(true);
+        }
+
+        return arrow;
+    }
+
+
 
     private Double getGravityPull(ItemStack stack) {
         return stack.get(ModComponents.GRAVITY_PULL);
