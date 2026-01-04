@@ -109,7 +109,6 @@ public class GravityBow extends BowItem {
     @Override
     protected ArrowEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
         ArrowEntity arrow = new ArrowEntity(world, shooter, projectileStack.copyWithCount(1), weaponStack);
-
         GravityArrow.arrows.add(new GravityArrow.ArrowData(arrow, getGravityPull(weaponStack)));
 
         if (critical) {

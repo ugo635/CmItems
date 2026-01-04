@@ -9,8 +9,6 @@ import net.minecraft.util.math.Vec3d;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.me.cmitems.CmItems.mc;
-
 public class GravityArrow {
     public static class ArrowData {
         public final ArrowEntity entity;
@@ -37,9 +35,12 @@ public class GravityArrow {
         // Iterate through all entities in the server world
         for (Entity entity : world.iterateEntities()) {
             // Skip arrows & spawner
+            /*
             if (mc.player != null) {
                 if (entity.getName().getString().equals(mc.player.getName().getString())) continue;
             }
+
+             */
             if (entity instanceof ArrowEntity) continue;
 
             ArrowData arrowData = getClosestArrow(entity);
@@ -54,7 +55,7 @@ public class GravityArrow {
                         arrowData.entity.getZ() - entity.getZ()
                 ).normalize();
 
-                double pullStrength = arrowData.gravityPull * 0.05 * (arrowData.gravityPull - distance);
+                double pullStrength = arrowData.gravityPull * 0.025 * (arrowData.gravityPull - distance);
 
                 entity.addVelocity(
                         direction.x * pullStrength,
