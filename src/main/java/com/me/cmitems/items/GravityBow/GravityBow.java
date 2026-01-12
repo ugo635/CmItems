@@ -1,6 +1,5 @@
-package com.me.cmitems.items;
+package com.me.cmitems.items.GravityBow;
 
-import com.me.cmitems.Entities.GravityArrow;
 import com.me.cmitems.ModComponents;
 import com.me.cmitems.ModItems;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;

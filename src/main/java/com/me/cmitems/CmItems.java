@@ -1,8 +1,9 @@
 package com.me.cmitems;
 
-import com.me.cmitems.Entities.GravityArrow;
+import com.me.cmitems.items.AimbotBow;
+import com.me.cmitems.items.GravityBow.GravityArrow;
 import com.me.cmitems.items.EnderBow;
-import com.me.cmitems.items.GravityBow;
+import com.me.cmitems.items.GravityBow.GravityBow;
 import com.me.cmitems.items.LightningStick;
 import com.me.cmitems.items.TntBow;
 import net.fabricmc.api.ModInitializer;
@@ -23,6 +24,7 @@ public class CmItems implements ModInitializer {
 		// Items
 		TntBow.register();
 		EnderBow.register();
+		AimbotBow.register();
 		GravityBow.register();
 		LightningStick.register();
 
