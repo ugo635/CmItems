@@ -1,18 +1,28 @@
-package com.me.cmitems.items;
+package com.me.cmitems.items.AimBot;
 
 import com.me.cmitems.ModItems;
+import com.me.cmitems.items.GravityBow.GravityArrow;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.WitherSkeletonEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.util.TypeFilter;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -56,7 +66,7 @@ public class AimbotBow extends BowItem {
             );
 
             for (LivingEntity entity : entities) {
-                if (!(entity instanceof WitherSkeletonEntity)) continue;
+                //if (!(entity instanceof WitherSkeletonEntity)) continue;
 
                 if (closest == null || mc.player.squaredDistanceTo(entity) < mc.player.squaredDistanceTo(closest)) {
                     closest = entity;
@@ -67,7 +77,6 @@ public class AimbotBow extends BowItem {
             if (closest == null) return;
 
             List<Float> yp = getYawPitchTo(mc.player, closest);
-            System.out.println("Yaw: " + yp.get(0) + " Pitch: " + yp.get(1));
 
             mc.player.setYaw(yp.get(0));
             mc.player.setPitch(yp.get(1));
@@ -95,6 +104,45 @@ public class AimbotBow extends BowItem {
         float pitch = (float) -Math.toDegrees(Math.atan2(dy, distXZ));
 
         return List.of(yaw, pitch);
+    }
+
+    @Override
+    protected void shootAll(ServerWorld world, LivingEntity shooter, Hand hand, ItemStack stack, List<ItemStack> projectiles, float speed, float divergence, boolean critical, @Nullable LivingEntity target) {
+        float f = EnchantmentHelper.getProjectileSpread(world, stack, shooter, 0.0F);
+        float g = projectiles.size() == 1 ? 0.0F : 2.0F * f / (float) (projectiles.size() - 1);
+        float h = (float) ((projectiles.size() - 1) % 2) * g / 2.0F;
+        float i = 1.0F;
+
+        for (int j = 0; j < projectiles.size(); ++j) {
+            ItemStack itemStack = projectiles.get(j);
+            if (!itemStack.isEmpty()) {
+                float k = h + i * (float) ((j + 1) / 2) * g;
+                i = -i;
+                int finalJ = j;
+
+                ArrowEntity arrow = createArrowEntity(world, shooter, stack, itemStack, critical);
+
+                ProjectileEntity.spawn(arrow, world, itemStack, (projectile) -> this.shoot(shooter, projectile, finalJ, speed, divergence, k, target));
+
+                stack.damage(this.getWeaponStackDamage(itemStack), shooter, LivingEntity.getSlotForHand(hand));
+                if (stack.isEmpty()) {
+                    break;
+                }
+            }
+        }
+    }
+
+
+    @Override
+    protected ArrowEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
+        ArrowEntity arrow = new ArrowEntity(world, shooter, projectileStack.copyWithCount(1), weaponStack);
+        AimbotArrow.arrows.add(new AimbotArrow.ArrowData(arrow, closest));
+
+        if (critical) {
+            arrow.setCritical(true);
+        }
+
+        return arrow;
     }
 
 }

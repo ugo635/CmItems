@@ -1,6 +1,7 @@
 package com.me.cmitems;
 
-import com.me.cmitems.items.AimbotBow;
+import com.me.cmitems.items.AimBot.AimbotArrow;
+import com.me.cmitems.items.AimBot.AimbotBow;
 import com.me.cmitems.items.GravityBow.GravityArrow;
 import com.me.cmitems.items.EnderBow;
 import com.me.cmitems.items.GravityBow.GravityBow;
@@ -30,6 +31,7 @@ public class CmItems implements ModInitializer {
 
 		// Entities
 		GravityArrow.register();
+		AimbotArrow.register();
 
 		// System
 		ModComponents.register();
