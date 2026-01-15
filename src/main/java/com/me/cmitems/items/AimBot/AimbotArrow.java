@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
@@ -16,11 +17,13 @@ public class AimbotArrow {
         public final ArrowEntity entity;
         public final String uuid;
         public final LivingEntity target;
+        public final float pullProgress;
 
-        public ArrowData(ArrowEntity entity, LivingEntity aim) {
+        public ArrowData(ArrowEntity entity, LivingEntity aim, float pullProgress) {
             this.target = aim;
             this.entity = entity;
             this.uuid = entity.getUuidAsString();
+            this.pullProgress = pullProgress;
         }
     }
 
@@ -30,7 +33,7 @@ public class AimbotArrow {
         ServerTickEvents.END_WORLD_TICK.register(AimbotArrow::aimbot);
     }
 
-    private static void aimbot(net.minecraft.server.world.ServerWorld world) {
+    private static void aimbot(ServerWorld world) {
         // Remove dead arrows
         arrows.removeIf(data ->
             data.entity.isRemoved() ||

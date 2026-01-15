@@ -38,6 +38,7 @@ public class AimbotBow extends BowItem {
 
     public static List<LivingEntity> entities;
     public static LivingEntity closest = null;
+    public static float flt;
 
     public static void register() {
         System.out.println("Registered Aimbot Bow");
@@ -109,6 +110,7 @@ public class AimbotBow extends BowItem {
     @Override
     protected void shootAll(ServerWorld world, LivingEntity shooter, Hand hand, ItemStack stack, List<ItemStack> projectiles, float speed, float divergence, boolean critical, @Nullable LivingEntity target) {
         float f = EnchantmentHelper.getProjectileSpread(world, stack, shooter, 0.0F);
+        flt = f;
         float g = projectiles.size() == 1 ? 0.0F : 2.0F * f / (float) (projectiles.size() - 1);
         float h = (float) ((projectiles.size() - 1) % 2) * g / 2.0F;
         float i = 1.0F;
@@ -136,7 +138,7 @@ public class AimbotBow extends BowItem {
     @Override
     protected ArrowEntity createArrowEntity(World world, LivingEntity shooter, ItemStack weaponStack, ItemStack projectileStack, boolean critical) {
         ArrowEntity arrow = new ArrowEntity(world, shooter, projectileStack.copyWithCount(1), weaponStack);
-        AimbotArrow.arrows.add(new AimbotArrow.ArrowData(arrow, closest));
+        AimbotArrow.arrows.add(new AimbotArrow.ArrowData(arrow, closest, flt));
 
         if (critical) {
             arrow.setCritical(true);
