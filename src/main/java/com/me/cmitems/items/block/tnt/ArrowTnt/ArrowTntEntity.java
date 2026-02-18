@@ -1,12 +1,13 @@
 package com.me.cmitems.items.block.tnt.ArrowTnt;
 
+import com.me.cmitems.ModSimpleEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtOps;
@@ -23,18 +24,40 @@ import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import static com.me.cmitems.CmItems.mc;
+
 public class ArrowTntEntity extends TntEntity {
-    private static final TrackedData<Integer> FUSE;
-    private static final TrackedData<BlockState> BLOCK_STATE;
+
+    public static final EntityType<ArrowTntEntity> ARROW_TNT_TYPE = ModSimpleEntity.register(
+            "arrow_tnt_entity",
+            ArrowTntEntity::new,
+            SpawnGroup.MISC,
+            1f,
+            1f
+    );
+
     private static final short DEFAULT_FUSE = 80;
     private static final float DEFAULT_EXPLOSION_POWER = 4.0F;
-    private static final BlockState DEFAULT_BLOCK_STATE;
+    private static final BlockState DEFAULT_BLOCK_STATE = ArrowTnt.ARROW_TNT.getDefaultState();
     private static final String BLOCK_STATE_NBT_KEY = "block_state";
     public static final String FUSE_NBT_KEY = "fuse";
     private static final String EXPLOSION_POWER_NBT_KEY = "explosion_power";
-    private static final ExplosionBehavior TELEPORTED_EXPLOSION_BEHAVIOR;
+    private static final ExplosionBehavior TELEPORTED_EXPLOSION_BEHAVIOR = new ExplosionBehavior() {
+        @Override
+        public boolean canDestroyBlock(Explosion explosion, BlockView world, BlockPos pos, BlockState state, float power) {
+            return false;
+        }
+
+        @Override
+        public Optional<Float> getBlastResistance(Explosion explosion, BlockView world, BlockPos pos, BlockState blockState, FluidState fluidState) {
+            return blockState.isOf(Blocks.NETHER_PORTAL) ? Optional.empty() : super.getBlastResistance(explosion, world, pos, blockState, fluidState);
+        }
+    };
+
     @Nullable
     private LivingEntity causingEntity;
     private boolean teleported;
@@ -44,10 +67,11 @@ public class ArrowTntEntity extends TntEntity {
         super(entityType, world);
         this.explosionPower = 4.0F;
         this.intersectionChecked = true;
+        this.setBlockState(DEFAULT_BLOCK_STATE);
     }
 
     public ArrowTntEntity(World world, double x, double y, double z, @Nullable LivingEntity igniter) {
-        this(EntityType.TNT, world);
+        this(ARROW_TNT_TYPE, world);
         this.setPosition(x, y, z);
         double d = world.random.nextDouble() * 6.2831854820251465;
         this.setVelocity(-Math.sin(d) * 0.02, 0.20000000298023224, -Math.cos(d) * 0.02);
@@ -56,12 +80,6 @@ public class ArrowTntEntity extends TntEntity {
         this.lastY = y;
         this.lastZ = z;
         this.causingEntity = igniter;
-    }
-
-    @Override
-    protected void initDataTracker(DataTracker.Builder builder) {
-        builder.add(FUSE, 80);
-        builder.add(BLOCK_STATE, DEFAULT_BLOCK_STATE);
     }
 
     @Override
@@ -103,35 +121,44 @@ public class ArrowTntEntity extends TntEntity {
                 this.getWorld().addParticleClient(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5, this.getZ(), 0.0, 0.0, 0.0);
             }
         }
-
     }
 
     private void explode() {
-        World var2 = this.getWorld();
-        if (var2 instanceof ServerWorld serverWorld) {
+        World world = this.getWorld();
+        if (world instanceof ServerWorld serverWorld) {
             if (serverWorld.getGameRules().getBoolean(GameRules.TNT_EXPLODES)) {
-                this.getWorld().createExplosion(this, Explosion.createDamageSource(this.getWorld(), this), this.teleported ? TELEPORTED_EXPLOSION_BEHAVIOR : null, this.getX(), this.getBodyY(0.0625), this.getZ(), this.explosionPower, false, World.ExplosionSourceType.TNT);
+                List<ArrowEntity> arrows = new ArrayList<>();
+
+                // Circle the tnt in 360 degrees
+                for (int i = 0; i < 360; i++) {
+                    double radians = Math.toRadians(i);
+                    double x = this.getX() + Math.cos(radians) * 2;
+                    double z = this.getZ() + Math.sin(radians) * 2;
+                    if (mc.player == null) return;
+                    ArrowEntity arrow = new ArrowEntity(world, mc.player, new ItemStack(Items.ARROW), null);
+                    arrow.setPos(x, this.getY(), z);
+                    arrow.setVelocity(Math.cos(radians), 0.5, Math.sin(radians));
+                    arrows.add(arrow);
+                }
+
+                for (ArrowEntity arrow : arrows) {
+                    world.spawnEntity(arrow);
+                }
             }
         }
-
     }
 
     @Override
     protected void writeCustomDataToNbt(NbtCompound nbt) {
-        RegistryOps<NbtElement> registryOps = this.getRegistryManager().getOps(NbtOps.INSTANCE);
-        nbt.putShort("fuse", (short)this.getFuse());
-        nbt.put("block_state", BlockState.CODEC, registryOps, this.getBlockState());
+        super.writeCustomDataToNbt(nbt);
         if (this.explosionPower != 4.0F) {
             nbt.putFloat("explosion_power", this.explosionPower);
         }
-
     }
 
     @Override
     protected void readCustomDataFromNbt(NbtCompound nbt) {
-        RegistryOps<NbtElement> registryOps = this.getRegistryManager().getOps(NbtOps.INSTANCE);
-        this.setFuse(nbt.getShort("fuse", (short)80));
-        this.setBlockState((BlockState)nbt.get("block_state", BlockState.CODEC, registryOps).orElse(DEFAULT_BLOCK_STATE));
+        super.readCustomDataFromNbt(nbt);
         this.explosionPower = MathHelper.clamp(nbt.getFloat("explosion_power", 4.0F), 0.0F, 128.0F);
     }
 
@@ -147,27 +174,6 @@ public class ArrowTntEntity extends TntEntity {
         if (original instanceof ArrowTntEntity atEntity) {
             this.causingEntity = atEntity.causingEntity;
         }
-
-    }
-
-    @Override
-    public void setFuse(int fuse) {
-        this.dataTracker.set(FUSE, fuse);
-    }
-
-    @Override
-    public int getFuse() {
-        return (Integer)this.dataTracker.get(FUSE);
-    }
-
-    @Override
-    public void setBlockState(BlockState state) {
-        this.dataTracker.set(BLOCK_STATE, state);
-    }
-
-    @Override
-    public BlockState getBlockState() {
-        return (BlockState)this.dataTracker.get(BLOCK_STATE);
     }
 
     private void setTeleported(boolean teleported) {
@@ -181,25 +187,6 @@ public class ArrowTntEntity extends TntEntity {
         if (entity instanceof ArrowTntEntity atEntity) {
             atEntity.setTeleported(true);
         }
-
         return entity;
     }
-
-    static {
-        FUSE = DataTracker.registerData(ArrowTntEntity.class, TrackedDataHandlerRegistry.INTEGER);
-        BLOCK_STATE = DataTracker.registerData(ArrowTntEntity.class, TrackedDataHandlerRegistry.BLOCK_STATE);
-        DEFAULT_BLOCK_STATE = Blocks.TNT.getDefaultState();
-        TELEPORTED_EXPLOSION_BEHAVIOR = new ExplosionBehavior() {
-            @Override
-            public boolean canDestroyBlock(Explosion explosion, BlockView world, BlockPos pos, BlockState state, float power) {
-                return false; // No explosion, we just want arrow
-            }
-
-            @Override
-            public Optional<Float> getBlastResistance(Explosion explosion, BlockView world, BlockPos pos, BlockState blockState, FluidState fluidState) {
-                return blockState.isOf(Blocks.NETHER_PORTAL) ? Optional.empty() : super.getBlastResistance(explosion, world, pos, blockState, fluidState);
-            }
-        };
-    }
-
 }

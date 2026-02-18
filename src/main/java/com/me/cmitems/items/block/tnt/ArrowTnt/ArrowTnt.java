@@ -47,7 +47,7 @@ public class ArrowTnt extends TntBlock {
     }
 
     public static void register() {
-        System.out.println("Registered Lightning Stick");
+        System.out.println("Registered Arrow TnT");
         ItemTooltipCallback.EVENT.register((stack, tooltipContext, tooltipType, list) -> {
             if (getBlockFromItem(stack.getItem()) == ARROW_TNT) {
                 list.add(Text.translatable("item.cmitems.arrow_tnt.tooltip"));
@@ -128,39 +128,17 @@ public class ArrowTnt extends TntBlock {
     private static boolean primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter) {
         if (world instanceof ServerWorld serverWorld) {
             if (serverWorld.getGameRules().getBoolean(GameRules.TNT_EXPLODES)) {
-                TntEntity tntEntity = new TntEntity(world, (double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5, igniter);
-                world.spawnEntity(tntEntity);
-                explode(world, tntEntity, igniter);
-                world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
+                ArrowTntEntity atEntity = new ArrowTntEntity(world, (double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5, igniter);
+                world.spawnEntity(atEntity);
+                //world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
                 world.playSound((Entity) null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.emitGameEvent(igniter, GameEvent.PRIME_FUSE, pos);
                 return true;
             }
         }
 
-        System.out.println("Breh");
-
         return false;
     }
 
-    private static void explode(World world, double X, double Y, double Z, LivingEntity igniter) {
-        List<ArrowEntity> arrows = new ArrayList<>();
-
-        // Circle the tnt in 360 degrees
-        for (int i = 0; i < 360; i++) {
-            double radians = Math.toRadians(i);
-            double x = X + Math.cos(radians) * 2;
-            double z = Z + Math.sin(radians) * 2;
-            if (mc.player == null) return;
-            ArrowEntity arrow = new ArrowEntity(world, mc.player, new ItemStack(Items.ARROW), null);
-            arrow.setPos(x, Y, z);
-            arrow.setVelocity(Math.cos(radians), 0.5, Math.sin(radians));
-            arrows.add(arrow);
-        }
-
-        for (ArrowEntity arrow : arrows) {
-            world.spawnEntity(arrow);
-        }
-    }
 
 }

@@ -8,6 +8,7 @@ import com.me.cmitems.items.GravityBow.GravityBow;
 import com.me.cmitems.items.LightningStick;
 import com.me.cmitems.items.TntBow;
 import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTnt;
+import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTntEntityRenderer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
@@ -26,13 +27,17 @@ public class CmItems implements ModInitializer {
 		// Items
 		TntBow.register();
 		EnderBow.register();
+
 		AimbotBow.register();
+		AimbotArrow.register();
+
 		GravityBow.register();
+		GravityArrow.register();
+
 		LightningStick.register();
 
 		// Entities
-		GravityArrow.register();
-		AimbotArrow.register();
+		ArrowTntEntityRenderer.register();
 
 		// Blocks
 		ArrowTnt.register();
