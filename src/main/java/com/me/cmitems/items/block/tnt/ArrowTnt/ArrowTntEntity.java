@@ -40,8 +40,8 @@ public class ArrowTntEntity extends TntEntity {
             1f
     );
 
-    private static final boolean ShouldBeBurningArrows = true;
-    private static final boolean ShouldHaveGravity = false;
+    private static boolean ShouldBeBurningArrows = true;
+    private static boolean ShouldHaveGravity = true;
 
     private static final short DEFAULT_FUSE = 80;
     private static final float DEFAULT_EXPLOSION_POWER = 4.0F;
@@ -85,14 +85,22 @@ public class ArrowTntEntity extends TntEntity {
         this.causingEntity = igniter;
     }
 
-    @Override
-    protected MoveEffect getMoveEffect() {
-        return MoveEffect.NONE;
-    }
+    public ArrowTntEntity(World world, double x, double y, double z, @Nullable LivingEntity igniter, boolean burn, boolean gravity) {
+        this(ARROW_TNT_TYPE, world);
+        this.ShouldBeBurningArrows = burn;
+        this.ShouldHaveGravity = gravity;
+        this.setPosition(x, y, z);
+        double d = world.random.nextDouble() * 6.2831854820251465;
+        double dx = gravity ? -Math.sin(d) * 0.02 : 0;
+        double dy = gravity ? 0.20000000298023224 : 0.20000000298023224 / 2;
+        double dz = gravity ? -Math.cos(d) * 0.02 : 0;
+        this.setVelocity(dx, dy, dz);
+        this.setFuse(80);
+        this.lastX = x;
+        this.lastY = y;
+        this.lastZ = z;
+        this.causingEntity = igniter;
 
-    @Override
-    public boolean canHit() {
-        return !this.isRemoved();
     }
 
     @Override
@@ -197,45 +205,4 @@ public class ArrowTntEntity extends TntEntity {
         return arrows;
     }
 
-    @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
-        if (this.explosionPower != 4.0F) {
-            nbt.putFloat("explosion_power", this.explosionPower);
-        }
-    }
-
-    @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        this.explosionPower = MathHelper.clamp(nbt.getFloat("explosion_power", 4.0F), 0.0F, 128.0F);
-    }
-
-    @Nullable
-    @Override
-    public LivingEntity getOwner() {
-        return this.causingEntity;
-    }
-
-    @Override
-    public void copyFrom(Entity original) {
-        super.copyFrom(original);
-        if (original instanceof ArrowTntEntity atEntity) {
-            this.causingEntity = atEntity.causingEntity;
-        }
-    }
-
-    private void setTeleported(boolean teleported) {
-        this.teleported = teleported;
-    }
-
-    @Nullable
-    @Override
-    public Entity teleportTo(TeleportTarget teleportTarget) {
-        Entity entity = super.teleportTo(teleportTarget);
-        if (entity instanceof ArrowTntEntity atEntity) {
-            atEntity.setTeleported(true);
-        }
-        return entity;
-    }
 }
