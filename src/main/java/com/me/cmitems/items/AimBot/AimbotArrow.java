@@ -37,7 +37,7 @@ public class AimbotArrow {
         // Remove dead arrows
         arrows.removeIf(data ->
             data.entity.isRemoved() ||
-            data.target.isRemoved() ||
+            (data.target != null && data.target.isRemoved()) ||
             data.entity.isOnGround()
         );
 
@@ -46,11 +46,16 @@ public class AimbotArrow {
 
             if (arrow == null) continue;
 
-            Vec3d direction = new Vec3d(
-                    arrow.target.getX() - arrow.entity.getX(),
-                    arrow.target.getY() - arrow.entity.getY(),
-                    arrow.target.getZ() - arrow.entity.getZ()
-            ).normalize();
+            Vec3d direction;
+            if (arrow.target != null) {
+                direction = new Vec3d(
+                        arrow.target.getX() - arrow.entity.getX(),
+                        arrow.target.getY() - arrow.entity.getY(),
+                        arrow.target.getZ() - arrow.entity.getZ()
+                ).normalize();
+            } else {
+                direction = arrow.entity.getVelocity().normalize();
+            }
 
 
             arrow.entity.setVelocity(direction);
