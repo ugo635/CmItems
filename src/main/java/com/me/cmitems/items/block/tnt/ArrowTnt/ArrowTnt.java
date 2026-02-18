@@ -130,7 +130,6 @@ public class ArrowTnt extends TntBlock {
             if (serverWorld.getGameRules().getBoolean(GameRules.TNT_EXPLODES)) {
                 ArrowTntEntity atEntity = new ArrowTntEntity(world, (double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5, igniter);
                 world.spawnEntity(atEntity);
-                //world.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
                 world.playSound((Entity) null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.emitGameEvent(igniter, GameEvent.PRIME_FUSE, pos);
                 return true;

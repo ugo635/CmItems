@@ -40,6 +40,9 @@ public class ArrowTntEntity extends TntEntity {
             1f
     );
 
+    private static final boolean ShouldBeBurningArrows = true;
+    private static final boolean ShouldHaveGravity = false;
+
     private static final short DEFAULT_FUSE = 80;
     private static final float DEFAULT_EXPLOSION_POWER = 4.0F;
     private static final BlockState DEFAULT_BLOCK_STATE = ArrowTnt.ARROW_TNT.getDefaultState();
@@ -94,7 +97,17 @@ public class ArrowTntEntity extends TntEntity {
 
     @Override
     protected double getGravity() {
-        return 0.04;
+        return ShouldHaveGravity ? 0.04 : 0.0;
+    }
+
+    @Override
+    protected void applyGravity() {
+        if (!ShouldHaveGravity) return;
+        double d = this.getFinalGravity();
+        if (d != 0.0) {
+            this.setVelocity(this.getVelocity().add(0.0, -d, 0.0));
+        }
+
     }
 
     @Override
@@ -103,8 +116,8 @@ public class ArrowTntEntity extends TntEntity {
         this.applyGravity();
         this.move(MovementType.SELF, this.getVelocity());
         this.tickBlockCollision();
-        this.setVelocity(this.getVelocity().multiply(0.98));
-        if (this.isOnGround()) {
+        if (ShouldHaveGravity) this.setVelocity(this.getVelocity().multiply(0.98));
+        if (this.isOnGround() && ShouldHaveGravity) {
             this.setVelocity(this.getVelocity().multiply(0.7, -0.5, 0.7));
         }
 
@@ -127,25 +140,61 @@ public class ArrowTntEntity extends TntEntity {
         World world = this.getWorld();
         if (world instanceof ServerWorld serverWorld) {
             if (serverWorld.getGameRules().getBoolean(GameRules.TNT_EXPLODES)) {
-                List<ArrowEntity> arrows = new ArrayList<>();
 
-                // Circle the tnt in 360 degrees
-                for (int i = 0; i < 360; i++) {
-                    double radians = Math.toRadians(i);
-                    double x = this.getX() + Math.cos(radians) * 2;
-                    double z = this.getZ() + Math.sin(radians) * 2;
-                    if (mc.player == null) return;
-                    ArrowEntity arrow = new ArrowEntity(world, mc.player, new ItemStack(Items.ARROW), null);
-                    arrow.setPos(x, this.getY(), z);
-                    arrow.setVelocity(Math.cos(radians), 0.5, Math.sin(radians));
-                    arrows.add(arrow);
-                }
-
-                for (ArrowEntity arrow : arrows) {
+                for (ArrowEntity arrow : this.getArrows(world)) {
                     world.spawnEntity(arrow);
                 }
             }
         }
+    }
+
+    /**
+     * Spawns arrows in a spherical pattern around the TNT explosion point, flying outward in all directions.
+     * @param world
+     * @return
+     */
+    private List<ArrowEntity> getArrows(World world) {
+        List<ArrowEntity> arrows = new ArrayList<>();
+        if (mc.player == null) return arrows;
+
+        int horizontalSteps = 18;
+        int verticalSteps = 20;   // 18 * 20 = 360 arrows
+        double radius = 1.5;      // Spawn distance from center
+        double speed = 1.2;
+
+        for (int i = 0; i < verticalSteps; i++) {
+            double phi = Math.PI * (double) i / (verticalSteps - 1);
+
+            for (int j = 0; j < horizontalSteps; j++) {
+                double theta = 2.0 * Math.PI * (double) j / horizontalSteps;
+
+                // Calculate directional vectors
+                double vx = Math.sin(phi) * Math.cos(theta);
+                double vy = Math.cos(phi);
+                double vz = Math.sin(phi) * Math.sin(theta);
+
+                // Calculate exact spawn position
+                double x = this.getX() + vx * radius;
+                double y = this.getY() + vy * radius + 0.5;
+                double z = this.getZ() + vz * radius;
+
+                // --- COLLISION TEST ---
+                BlockPos spawnPos = new BlockPos((int)x, (int)y, (int)z);
+                // Check if the block at the spawn position is air or non-solid
+                if (!world.getBlockState(spawnPos).isAir()) {
+                    continue; // Skip this arrow if it's inside a block
+                }
+
+                ArrowEntity arrow = new ArrowEntity(world, mc.player, new ItemStack(Items.ARROW), null);
+                arrow.setPos(x, y, z);
+                arrow.setVelocity(vx * speed, vy * speed, vz * speed);
+                arrow.setOnFireFor(ShouldBeBurningArrows ? 15 : 0); // 15s of fire if should burn
+                arrow.setDamage(5); // 2.5 hearts of damage
+
+                arrows.add(arrow);
+            }
+        }
+        return arrows;
     }
 
     @Override
