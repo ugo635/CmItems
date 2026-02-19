@@ -64,7 +64,7 @@ public class ArrowTnt extends TntBlock {
         for (Direction direction : Direction.values()) {
             BlockPos offset = pos.offset(direction);
             if (world.getBlockState(offset).isOf(Blocks.FIRE)) {
-                if (random.nextInt(20) == 0 && primeTnt(world, pos)) {
+                if (random.nextInt(50) == 0 && primeTnt(world, pos)) { // 1 in 50 chance of igniting every tick
                     world.removeBlock(pos, false);
                     return;
                 }
