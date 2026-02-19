@@ -4,9 +4,7 @@ import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,17 +20,12 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.me.cmitems.CmItems.mc;
 
 // Tnt that spawns arrow everywhere when explode
 public class ArrowTnt extends TntBlock {
@@ -59,19 +52,26 @@ public class ArrowTnt extends TntBlock {
     @Override
     protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         if (!oldState.isOf(state.getBlock())) {
+            world.scheduleBlockTick(pos, this, 1);
             if (world.isReceivingRedstonePower(pos) && primeTnt(world, pos)) {
                 world.removeBlock(pos, false);
             }
-
         }
     }
 
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
-        if (world.isReceivingRedstonePower(pos) && primeTnt(world, pos)) {
-            world.removeBlock(pos, false);
+    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) {
+        for (Direction direction : Direction.values()) {
+            BlockPos offset = pos.offset(direction);
+            if (world.getBlockState(offset).isOf(Blocks.FIRE)) {
+                if (random.nextInt(20) == 0 && primeTnt(world, pos)) {
+                    world.removeBlock(pos, false);
+                    return;
+                }
+            }
         }
 
+        world.scheduleBlockTick(pos, this, 1);
     }
 
     @Override
@@ -129,7 +129,6 @@ public class ArrowTnt extends TntBlock {
                 world.removeBlock(blockPos, false);
             }
         }
-
     }
 
     public static boolean primeTnt(World world, BlockPos pos) {
@@ -149,6 +148,4 @@ public class ArrowTnt extends TntBlock {
 
         return false;
     }
-
-
 }
