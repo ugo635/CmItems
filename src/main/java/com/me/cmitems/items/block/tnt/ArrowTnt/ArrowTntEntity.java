@@ -158,8 +158,6 @@ public class ArrowTntEntity extends TntEntity {
 
     /**
      * Spawns arrows in a spherical pattern around the TNT explosion point, flying outward in all directions.
-     * @param world
-     * @return
      */
     private List<ArrowEntity> getArrows(World world) {
         List<ArrowEntity> arrows = new ArrayList<>();

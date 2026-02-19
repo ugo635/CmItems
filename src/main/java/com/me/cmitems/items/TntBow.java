@@ -1,9 +1,11 @@
 package com.me.cmitems.items;
 
 import com.me.cmitems.ModItems;
+import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTntEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +20,10 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
+
+import static com.me.cmitems.CmItems.mc;
 
 
 public class TntBow extends BowItem {
@@ -28,6 +33,7 @@ public class TntBow extends BowItem {
             new Item.Settings().maxCount(1)
     );
 
+    public static String offHand = "";
 
     public static void register() {
         System.out.println("Registered Tnt Bow");
@@ -95,7 +101,17 @@ public class TntBow extends BowItem {
         Vec3d look = player.getRotationVector().normalize();
         Vec3d spawnPos = player.getEyePos().add(look);
 
-        TntEntity tnt = new TntEntity(world, spawnPos.x, spawnPos.y, spawnPos.z, player);
+        String offH = shooter.getOffHandStack().getName().getString();
+        System.out.println("OffH: " + offH);
+        if (!offHand.equals(offH) && !offH.equals("Air")) offHand = offH;
+
+        System.out.println("Final: " + offHand);
+
+        TntEntity tnt = switch (offHand) {
+            case "Arrow TNT" -> new ArrowTntEntity(world, spawnPos.x, spawnPos.y, spawnPos.z, player);
+            default -> new TntEntity(world, spawnPos.x, spawnPos.y, spawnPos.z, player);
+        };
+
         world.spawnEntity(tnt);
 
         tnt.setVelocity(look.multiply(speed));
