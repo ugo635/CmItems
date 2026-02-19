@@ -26,6 +26,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -106,6 +107,16 @@ public class ArrowTnt extends TntBlock {
             }
 
             return ActionResult.SUCCESS;
+        }
+    }
+
+    @Override
+    public void onDestroyedByExplosion(ServerWorld world, BlockPos pos, Explosion explosion) {
+        if (world.getGameRules().getBoolean(GameRules.TNT_EXPLODES)) {
+            ArrowTntEntity atEntity = new ArrowTntEntity(world, (double) pos.getX() + 0.5, (double) pos.getY(), (double) pos.getZ() + 0.5, explosion.getCausingEntity(), true, false);
+            int i = atEntity.getFuse();
+            atEntity.setFuse((short)(world.random.nextInt(i / 4) + i / 8));
+            world.spawnEntity(atEntity);
         }
     }
 
