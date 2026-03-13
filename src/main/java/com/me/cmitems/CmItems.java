@@ -1,14 +1,16 @@
 package com.me.cmitems;
 
-import com.me.cmitems.items.AimBot.AimbotArrow;
-import com.me.cmitems.items.AimBot.AimbotBow;
-import com.me.cmitems.items.GravityBow.GravityArrow;
-import com.me.cmitems.items.EnderBow;
-import com.me.cmitems.items.GravityBow.GravityBow;
-import com.me.cmitems.items.LightningStick;
-import com.me.cmitems.items.TntBow;
-import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTnt;
-import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTntEntityRenderer;
+import com.me.cmitems.creator.ModComponents;
+import com.me.cmitems.items.bows.AimbotBow.AimbotArrow;
+import com.me.cmitems.items.bows.AimbotBow.AimbotBow;
+import com.me.cmitems.items.bows.GravityBow.GravityArrow;
+import com.me.cmitems.items.bows.EnderBow;
+import com.me.cmitems.items.bows.GravityBow.GravityBow;
+import com.me.cmitems.items.tools.drills.DiamondDrill;
+import com.me.cmitems.items.tools.other.LightningStick;
+import com.me.cmitems.items.bows.TntBow;
+import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTnt;
+import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTntEntityRenderer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
@@ -35,6 +37,8 @@ public class CmItems implements ModInitializer {
 		GravityArrow.register();
 
 		LightningStick.register();
+
+		DiamondDrill.register();
 
 		// Entities
 		ArrowTntEntityRenderer.register();

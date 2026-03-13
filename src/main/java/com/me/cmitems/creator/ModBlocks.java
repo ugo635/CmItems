@@ -1,5 +1,6 @@
-package com.me.cmitems;
+package com.me.cmitems.creator;
 
+import com.me.cmitems.CustomCreativeItem;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;

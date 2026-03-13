@@ -1,4 +1,4 @@
-package com.me.cmitems;
+package com.me.cmitems.utils;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import java.util.ArrayList;

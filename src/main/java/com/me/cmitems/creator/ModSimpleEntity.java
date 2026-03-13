@@ -1,4 +1,4 @@
-package com.me.cmitems;
+package com.me.cmitems.creator;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

@@ -1,4 +1,4 @@
-package com.me.cmitems.items.block.tnt.ArrowTnt;
+package com.me.cmitems.blocks.tnts.arrowtnt;
 
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.block.*;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
-import com.me.cmitems.ModBlocks;
+import com.me.cmitems.creator.ModBlocks;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;

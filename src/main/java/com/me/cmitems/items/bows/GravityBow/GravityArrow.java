@@ -1,4 +1,4 @@
-package com.me.cmitems.items.GravityBow;
+package com.me.cmitems.items.bows.GravityBow;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.Entity;

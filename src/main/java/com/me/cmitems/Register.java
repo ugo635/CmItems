@@ -1,8 +1,10 @@
 package com.me.cmitems;
 
+import com.me.cmitems.utils.TickScheduler;
+
 import java.util.function.Consumer;
 
-import static com.me.cmitems.TickScheduler.tasks;
+import static com.me.cmitems.utils.TickScheduler.tasks;
 
 public class Register {
     /**

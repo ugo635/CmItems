@@ -1,5 +1,6 @@
-package com.me.cmitems;
+package com.me.cmitems.creator;
 
+import com.me.cmitems.CmItems;
 import com.mojang.serialization.Codec;
 import net.minecraft.component.ComponentType;
 import net.minecraft.network.codec.PacketCodecs;
@@ -17,7 +18,7 @@ public class ModComponents {
                     .build()
     );
 
-    protected static void register() {
+    public static void register() {
         //noinspection RedundantStringFormatCall // Remove warning
         System.out.println("Registering %s components".formatted(CmItems.MOD_ID));
     }

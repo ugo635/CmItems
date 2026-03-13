@@ -1,4 +1,4 @@
-package com.me.cmitems;
+package com.me.cmitems.utils;
 
 import static com.me.cmitems.CmItems.mc;
 import static java.lang.Integer.parseInt;
@@ -13,7 +13,6 @@ import net.minecraft.util.Formatting;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.UUID;
 
 public class Chat {
 

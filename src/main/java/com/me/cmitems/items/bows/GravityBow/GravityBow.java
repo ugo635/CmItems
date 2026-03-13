@@ -1,7 +1,7 @@
-package com.me.cmitems.items.GravityBow;
+package com.me.cmitems.items.bows.GravityBow;
 
-import com.me.cmitems.ModComponents;
-import com.me.cmitems.ModItems;
+import com.me.cmitems.creator.ModComponents;
+import com.me.cmitems.creator.ModItems;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;

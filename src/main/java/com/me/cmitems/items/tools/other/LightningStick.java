@@ -1,6 +1,6 @@
-package com.me.cmitems.items;
+package com.me.cmitems.items.tools.other;
 
-import com.me.cmitems.ModItems;
+import com.me.cmitems.creator.ModItems;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;

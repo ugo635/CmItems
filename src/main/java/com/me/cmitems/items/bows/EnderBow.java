@@ -1,12 +1,9 @@
-package com.me.cmitems.items;
+package com.me.cmitems.items.bows;
 
-import com.me.cmitems.ModItems;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
+import com.me.cmitems.creator.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;

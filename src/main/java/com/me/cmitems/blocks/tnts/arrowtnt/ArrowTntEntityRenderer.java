@@ -1,4 +1,4 @@
-package com.me.cmitems.items.block.tnt.ArrowTnt;
+package com.me.cmitems.blocks.tnts.arrowtnt;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

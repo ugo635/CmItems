@@ -1,11 +1,10 @@
-package com.me.cmitems.items;
+package com.me.cmitems.items.bows;
 
-import com.me.cmitems.ModItems;
-import com.me.cmitems.items.block.tnt.ArrowTnt.ArrowTntEntity;
+import com.me.cmitems.creator.ModItems;
+import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTntEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,10 +19,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Predicate;
-
-import static com.me.cmitems.CmItems.mc;
 
 
 public class TntBow extends BowItem {

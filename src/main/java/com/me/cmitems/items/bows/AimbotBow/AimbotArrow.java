@@ -1,8 +1,6 @@
-package com.me.cmitems.items.AimBot;
+package com.me.cmitems.items.bows.AimbotBow;
 
-import com.me.cmitems.items.GravityBow.GravityArrow;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.server.world.ServerWorld;
