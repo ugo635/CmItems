@@ -19,6 +19,9 @@
 			"com.me.cmitems.CmItems"
 		]
 	},
+	"mixins": [
+		"cmitems.mixins.json"
+	],
 	"depends": {
 		"fabricloader": ">=0.18.3",
 		"minecraft": "~1.21.5",

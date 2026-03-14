@@ -3,7 +3,8 @@
 	"package": "com.me.cmitems.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"BlockOutlineDrillMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
