@@ -1,4 +1,4 @@
-package com.me.cmitems.items.tools.sword;
+package com.me.cmitems.items.sword;
 
 import net.minecraft.item.Item;
 

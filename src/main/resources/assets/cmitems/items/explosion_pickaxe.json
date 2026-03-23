@@ -1,0 +1,6 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "cmitems:item/pickaxe/explosion_pickaxe"
+    }
+}

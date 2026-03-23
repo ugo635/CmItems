@@ -3,6 +3,7 @@ package com.me.cmitems.items.tools.drills;
 import com.me.cmitems.creator.ModItems;
 import com.me.cmitems.toolmaterial.DrillMaterial;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.minecraft.block.PointedDripstoneBlock;
 import net.minecraft.item.Item;
 import net.minecraft.text.Text;
 

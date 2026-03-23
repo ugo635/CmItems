@@ -7,10 +7,11 @@ import com.me.cmitems.items.bows.GravityBow.GravityArrow;
 import com.me.cmitems.items.bows.EnderBow;
 import com.me.cmitems.items.bows.GravityBow.GravityBow;
 import com.me.cmitems.items.tools.drills.DiamondDrill;
-import com.me.cmitems.items.tools.other.LightningStick;
+import com.me.cmitems.items.other.LightningStick;
 import com.me.cmitems.items.bows.TntBow;
 import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTnt;
 import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTntEntityRenderer;
+import com.me.cmitems.items.tools.pickaxe.ExplosionPickaxe;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ public class CmItems implements ModInitializer {
 
 		LightningStick.register();
 
+		ExplosionPickaxe.register();
 		DiamondDrill.register();
 
 		// Entities

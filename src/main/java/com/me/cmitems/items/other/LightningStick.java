@@ -1,4 +1,4 @@
-package com.me.cmitems.items.tools.other;
+package com.me.cmitems.items.other;
 
 import com.me.cmitems.creator.ModItems;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
