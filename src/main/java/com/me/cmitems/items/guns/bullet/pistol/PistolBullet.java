@@ -1,6 +1,7 @@
 package com.me.cmitems.items.guns.bullet.pistol;
 
 import com.me.cmitems.creator.ModEntity;
+import com.me.cmitems.items.guns.bullet.Bullet;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -23,7 +24,7 @@ import net.minecraft.world.World;
 
 import static com.me.cmitems.CmItems.mc;
 
-public class PistolBullet extends Entity {
+public class PistolBullet extends Bullet {
     public static final float bulletWidth = 0.375f;
     public static final EntityType<PistolBullet> PISTOL_BULLET = ModEntity.register(
             "pistol_bullet",
@@ -45,6 +46,16 @@ public class PistolBullet extends Entity {
 
     public PistolBullet(World world) {
         this(PISTOL_BULLET, world);
+    }
+
+    public PistolBullet(World world, Vec3d pos) {
+        this(PISTOL_BULLET, world);
+        this.setPosition(pos);
+    }
+
+    public PistolBullet(World world, double x, double y, double z) {
+        this(PISTOL_BULLET, world);
+        this.setPosition(x, y, z);
     }
 
     @Override

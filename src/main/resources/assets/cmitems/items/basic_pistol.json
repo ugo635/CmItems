@@ -1,0 +1,6 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "cmitems:item/guns/pistol/basic_pistol"
+    }
+}

@@ -21,6 +21,8 @@
   "item.cmitems.diamond_drill": "Diamond Drill",
     "itemTooltip.cmitems.diamond_drill": "§6A drill that can mine in a 3x3 area",
 
-  "item.cmitems.explosion_pickaxe": "Explosion Pickaxe"
+  "item.cmitems.explosion_pickaxe": "Explosion Pickaxe",
+
+  "item.cmitems.basic_pistol": "Basic Pistol"
 
 }
