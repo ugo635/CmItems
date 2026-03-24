@@ -1,10 +1,11 @@
 package com.me.cmitems.items.guns.pistol;
 
 import com.me.cmitems.creator.ModItems;
-import com.me.cmitems.items.guns.GeneralGun;
+import com.me.cmitems.entities.bullet.Bullet;
+import com.me.cmitems.items.guns.Gun;
 import net.minecraft.item.Item;
 
-public class BasicPistol extends GeneralGun {
+public class BasicPistol extends Gun {
     public static final Item PISTOL_GUN = ModItems.register(
             "basic_pistol",
             BasicPistol::new,
@@ -17,8 +18,9 @@ public class BasicPistol extends GeneralGun {
         this.maxAmmo = 16;
         this.ammo = 16;
         this.damage = 5f;
-        this.gunType = GunType.PISTOL;
-        this.bulletType = BulletType.PISTOL;
+        this.gunType = Gun.Type.PISTOL;
+        this.bulletType = Bullet.Type.PISTOL;
+        this.cooldownDuration = 5;
     }
 
     public static void register() {

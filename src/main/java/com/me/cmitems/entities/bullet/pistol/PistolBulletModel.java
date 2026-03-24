@@ -1,4 +1,4 @@
-package com.me.cmitems.items.guns.bullet.pistol;
+package com.me.cmitems.entities.bullet.pistol;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModel;

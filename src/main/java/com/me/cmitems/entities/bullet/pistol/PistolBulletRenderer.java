@@ -1,4 +1,4 @@
-package com.me.cmitems.items.guns.bullet.pistol;
+package com.me.cmitems.entities.bullet.pistol;
 
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;

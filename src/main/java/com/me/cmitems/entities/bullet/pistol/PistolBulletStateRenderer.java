@@ -1,6 +1,5 @@
-package com.me.cmitems.items.guns.bullet.pistol;
+package com.me.cmitems.entities.bullet.pistol;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.client.render.entity.state.EntityRenderState;
 
 public class PistolBulletStateRenderer extends EntityRenderState {

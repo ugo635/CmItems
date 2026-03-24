@@ -6,7 +6,7 @@ import com.me.cmitems.items.bows.AimbotBow.AimbotBow;
 import com.me.cmitems.items.bows.GravityBow.GravityArrow;
 import com.me.cmitems.items.bows.EnderBow;
 import com.me.cmitems.items.bows.GravityBow.GravityBow;
-import com.me.cmitems.items.guns.bullet.pistol.PistolBulletRenderer;
+import com.me.cmitems.entities.bullet.pistol.PistolBulletRenderer;
 import com.me.cmitems.items.guns.pistol.BasicPistol;
 import com.me.cmitems.items.tools.drills.DiamondDrill;
 import com.me.cmitems.items.other.LightningStick;
