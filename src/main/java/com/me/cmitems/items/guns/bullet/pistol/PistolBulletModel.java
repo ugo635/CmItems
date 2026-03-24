@@ -16,11 +16,14 @@ public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
 
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
+        ModelPartData root = modelData.getRoot();
 
-        // This is where you define "Length" (the 4.0f here)
-        modelPartData.addChild("main", ModelPartBuilder.create().uv(0, 0)
-                .cuboid(-0.5f, 0.0f, -2.0f, 1.0f, 1.0f, 4.0f), ModelTransform.NONE);
+        root.addChild("main",
+                ModelPartBuilder.create()
+                        .uv(0, 0)
+                        .cuboid(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 6.0F),
+                ModelTransform.of(0.0F, 24.0F, 0.0F, 0.0F, 0.0F, 0.0F)
+        );
 
         return TexturedModelData.of(modelData, 16, 16);
     }
