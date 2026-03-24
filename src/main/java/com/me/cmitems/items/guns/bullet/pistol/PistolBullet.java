@@ -14,8 +14,11 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import static com.me.cmitems.CmItems.mc;
@@ -31,11 +34,13 @@ public class PistolBullet extends Entity {
     );
 
     public final World world;
+    public final Entity shooter;
 
 
     public PistolBullet(EntityType<?> type, World world) {
         super(type, world);
         this.world = world;
+        this.shooter = null;
     }
 
     public PistolBullet(World world) {
@@ -47,36 +52,52 @@ public class PistolBullet extends Entity {
         super.tick();
 
         if (world instanceof ServerWorld serverWorld) {
-            // compute next position
             Vec3d start = this.getPos();
             Vec3d motion = this.getVelocity().normalize().multiply(speed);
             Vec3d end = start.add(motion);
 
-            // raycast to detect entities
-            EntityHitResult hit = ProjectileUtil.raycast(this, start, end,
-                    this.getBoundingBox().stretch(motion),
-                    e -> e != this && !e.isSpectator(),
-                    0.375
+            BlockHitResult blockHit = world.raycast(new RaycastContext(
+                    start,
+                    end,
+                    RaycastContext.ShapeType.COLLIDER,
+                    RaycastContext.FluidHandling.NONE,
+                    this
+            ));
+
+            if (blockHit.getType() != HitResult.Type.MISS) {
+                this.discard();
+                return;
+            }
+
+            EntityHitResult hit = ProjectileUtil.raycast(
+                    this,
+                    start,
+                    end,
+                    this.getBoundingBox().stretch(motion).expand(1.0),
+                    this::shouldHit,
+                    0.0
             );
 
             if (hit != null) {
-                // 1. Get the RegistryKey for the specific damage type
                 RegistryKey<DamageType> arrowKey = DamageTypes.ARROW;
 
                 RegistryEntry<DamageType> arrowTypeEntry = serverWorld.getRegistryManager()
                         .getOrThrow(RegistryKeys.DAMAGE_TYPE)
                         .getOrThrow(arrowKey);
 
-                DamageSource ds = new DamageSource(arrowTypeEntry, mc.player);
+                DamageSource ds = new DamageSource(arrowTypeEntry, mc.player); // TODO: Use shooter
 
                 hit.getEntity().damage(serverWorld, ds, 5f);
-                this.discard(); // remove bullet on hit
+                this.discard();
                 return;
             }
 
-            // move bullet
             this.updatePosition(end.x, end.y, end.z);
         }
+    }
+
+    private boolean shouldHit(Entity e) {
+        return !e.isSpectator() && e.canHit() && !(e instanceof PistolBullet) && e != shooter;
     }
 
     @Override
