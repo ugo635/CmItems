@@ -21,8 +21,8 @@ public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
         root.addChild("main",
                 ModelPartBuilder.create()
                         .uv(0, 0)
-                        .cuboid(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 6.0F),
-                ModelTransform.of(0.0F, 24.0F, 0.0F, 0.0F, 0.0F, 0.0F)
+                        .cuboid(-1.0F, -1.0F, -3.0F, 2.0F, 2.0F, 6.0F),
+                ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F)
         );
 
         return TexturedModelData.of(modelData, 16, 16);
