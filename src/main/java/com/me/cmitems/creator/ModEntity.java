@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 import static com.me.cmitems.CmItems.MOD_ID;
 
-public class ModSimpleEntity {
+public class ModEntity {
     public static <T extends Entity> EntityType<T> register(
             String name,
             EntityType.EntityFactory<T> factory,
@@ -19,17 +19,14 @@ public class ModSimpleEntity {
             float width,
             float height
     ) {
-        // 1. You correctly created the key here
         RegistryKey<EntityType<?>> entityKey = RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(MOD_ID, name));
 
-        EntityType<T> entityType = Registry.register(
+        return Registry.register(
                 Registries.ENTITY_TYPE,
                 entityKey,
                 EntityType.Builder.create(factory, group)
                         .dimensions(width, height)
                         .build(entityKey)
         );
-
-        return entityType;
     }
 }

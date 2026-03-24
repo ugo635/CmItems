@@ -1,6 +1,6 @@
 package com.me.cmitems.blocks.tnts.arrowtnt;
 
-import com.me.cmitems.creator.ModSimpleEntity;
+import com.me.cmitems.creator.ModEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
@@ -26,7 +26,7 @@ import static com.me.cmitems.CmItems.mc;
 
 public class ArrowTntEntity extends TntEntity {
 
-    public static final EntityType<ArrowTntEntity> ARROW_TNT_TYPE = ModSimpleEntity.register(
+    public static final EntityType<ArrowTntEntity> ARROW_TNT_TYPE = ModEntity.register(
             "arrow_tnt_entity",
             ArrowTntEntity::new,
             SpawnGroup.MISC,
@@ -81,8 +81,8 @@ public class ArrowTntEntity extends TntEntity {
 
     public ArrowTntEntity(World world, double x, double y, double z, @Nullable LivingEntity igniter, boolean burn, boolean gravity) {
         this(ARROW_TNT_TYPE, world);
-        this.ShouldBeBurningArrows = burn;
-        this.ShouldHaveGravity = gravity;
+        ShouldBeBurningArrows = burn;
+        ShouldHaveGravity = gravity;
         this.setPosition(x, y, z);
         double d = world.random.nextDouble() * 6.2831854820251465;
         double dx = gravity ? -Math.sin(d) * 0.02 : 0;
