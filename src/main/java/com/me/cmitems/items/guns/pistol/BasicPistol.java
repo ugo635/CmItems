@@ -10,6 +10,7 @@ public class BasicPistol extends Gun {
             "basic_pistol",
             BasicPistol::new,
             new Item.Settings()
+                    .useCooldown(0.25f)
                     .maxCount(1)
     );
 
@@ -20,7 +21,6 @@ public class BasicPistol extends Gun {
         this.damage = 5f;
         this.gunType = Gun.Type.PISTOL;
         this.bulletType = Bullet.Type.PISTOL;
-        this.cooldownDuration = 5;
     }
 
     public static void register() {

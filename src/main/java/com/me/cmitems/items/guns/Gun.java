@@ -1,10 +1,8 @@
 package com.me.cmitems.items.guns;
 
 import com.me.cmitems.entities.bullet.Bullet;
-import com.me.cmitems.utils.GunHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -26,15 +24,12 @@ public abstract class Gun extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        if (!world.isClient) shoot(world, user, user.getStackInHand(hand));
+        if (!world.isClient) shoot(world, user);
 
         return super.use(world, user, hand);
     }
 
-    protected void shoot(World world, PlayerEntity user, ItemStack stack) {
-        // Don't shoot if on cooldown
-        if (GunHelper.onCooldown(stack)) return;
-
+    protected void shoot(World world, PlayerEntity user) {
         Bullet bullet = this.bulletType.getBullet(world);
         Vec3d look = user.getRotationVec(1.0f);
 
@@ -48,7 +43,6 @@ public abstract class Gun extends Item {
 
         world.spawnEntity(bullet);
 
-        GunHelper.setCooldown(stack, cooldownDuration);
         this.recoil();
     }
 
