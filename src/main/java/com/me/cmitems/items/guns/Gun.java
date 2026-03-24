@@ -26,10 +26,12 @@ public abstract class Gun extends Item {
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) shoot(world, user);
 
-        return super.use(world, user, hand);
+        return ActionResult.SUCCESS;
     }
 
     protected void shoot(World world, PlayerEntity user) {
+        if (user.getItemCooldownManager().isCoolingDown(user.getMainHandStack())) return;
+
         Bullet bullet = this.bulletType.getBullet(world);
         Vec3d look = user.getRotationVec(1.0f);
 
