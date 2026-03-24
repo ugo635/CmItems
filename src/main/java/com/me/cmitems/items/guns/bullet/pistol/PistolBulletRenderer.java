@@ -31,47 +31,14 @@ public class PistolBulletRenderer extends EntityRenderer<PistolBullet, PistolBul
 
     @Override
     public void render(PistolBulletStateRenderer state, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        super.render(state, matrices, vertexConsumers, light);
-
         matrices.push();
+
         matrices.translate(0.0f, 0.1f, 0.0f);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(state.yaw));
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(state.pitch));
 
-        MatrixStack.Entry entry = matrices.peek();
-        VertexConsumer vc = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(TEXTURE));
-
-        // Vertex 1
-        vc.vertex(entry.getPositionMatrix(), -0.25f, 0.0f, 0.0f)
-                .color(255, 255, 255, 255)
-                .texture(0.0f, 0.0f)
-                .overlay(OverlayTexture.DEFAULT_UV)
-                .light(light)
-                .normal(entry, 0.0f, 1.0f, 0.0f);
-
-        // Vertex 2
-        vc.vertex(entry.getPositionMatrix(), 0.25f, 0.0f, 0.0f)
-                .color(255, 255, 255, 255)
-                .texture(1.0f, 0.0f)
-                .overlay(OverlayTexture.DEFAULT_UV)
-                .light(light)
-                .normal(entry, 0.0f, 1.0f, 0.0f);
-
-        // Vertex 3
-        vc.vertex(entry.getPositionMatrix(), 0.25f, 0.5f, 0.0f)
-                .color(255, 255, 255, 255)
-                .texture(1.0f, 1.0f)
-                .overlay(OverlayTexture.DEFAULT_UV)
-                .light(light)
-                .normal(entry, 0.0f, 1.0f, 0.0f);
-
-        // Vertex 4
-        vc.vertex(entry.getPositionMatrix(), -0.25f, 0.5f, 0.0f)
-                .color(255, 255, 255, 255)
-                .texture(0.0f, 1.0f)
-                .overlay(OverlayTexture.DEFAULT_UV)
-                .light(light)
-                .normal(entry, 0.0f, 1.0f, 0.0f);
+        VertexConsumer buffer = vertexConsumers.getBuffer(model.getLayer(TEXTURE));
+        model.render(matrices, buffer, light, OverlayTexture.DEFAULT_UV);
 
         matrices.pop();
     }
