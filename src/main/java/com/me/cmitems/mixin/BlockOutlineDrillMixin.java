@@ -80,7 +80,6 @@ public class BlockOutlineDrillMixin {
     @Unique
     private void drawDrillAreaOutline(Camera camera, MatrixStack matrices, GeneralDrill drill, BlockPos blockPos, Vec3d vec3d, VertexConsumer vertexConsumer) {
         List<BlockPos> positions = drill.getBlockAreaPosition(blockPos);
-        System.out.println("Drill area size: " + positions.size());
         for (BlockPos pos : positions) {
             BlockState state = this.world.getBlockState(pos);
             if (!state.isAir() && this.world.getWorldBorder().contains(pos)) {

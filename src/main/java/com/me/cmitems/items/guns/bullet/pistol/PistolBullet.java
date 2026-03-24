@@ -8,7 +8,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class PistolBullet extends Entity {
@@ -30,7 +29,7 @@ public class PistolBullet extends Entity {
         super.tick();
 
         // Basic gravity and movement logic
-        this.setVelocity(this.getVelocity().add(0, -0.04, 0)); // Gravity
+        // this.setVelocity(this.getVelocity().add(0, -0.04, 0)); // Gravity - Purposely commented, don't change it!
         this.move(net.minecraft.entity.MovementType.SELF, this.getVelocity());
 
         // Update rotation based on velocity

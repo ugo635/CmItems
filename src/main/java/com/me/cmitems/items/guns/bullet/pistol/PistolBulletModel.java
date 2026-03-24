@@ -1,10 +1,8 @@
 package com.me.cmitems.items.guns.bullet.pistol;
 
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
@@ -12,7 +10,7 @@ public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
     private final ModelPart bullet;
 
     public PistolBulletModel(ModelPart root) {
-        super(root.getChild("main"));
+        super(root);
         this.bullet = root.getChild("main");
     }
 
@@ -27,8 +25,4 @@ public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
         return TexturedModelData.of(modelData, 16, 16);
     }
 
-    @Override
-    public void setAngles(PistolBulletStateRenderer state) {
-        // Angles are handled by the renderer matrices in 1.21.4
-    }
 }

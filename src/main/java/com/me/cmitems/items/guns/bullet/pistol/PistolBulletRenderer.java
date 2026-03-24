@@ -1,17 +1,12 @@
 package com.me.cmitems.items.guns.bullet.pistol;
 
-import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTntEntity;
-import com.me.cmitems.blocks.tnts.arrowtnt.ArrowTntEntityRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.crash.CrashReportSection;
 import net.minecraft.util.math.RotationAxis;
 
 public class PistolBulletRenderer extends EntityRenderer<PistolBullet, PistolBulletStateRenderer> {
@@ -26,24 +21,57 @@ public class PistolBulletRenderer extends EntityRenderer<PistolBullet, PistolBul
 
     public PistolBulletRenderer(EntityRendererFactory.Context context) {
         super(context);
-        // Initialize your 3D model
         this.model = new PistolBulletModel(context.getPart(PistolBulletModel.LAYER_LOCATION));
+    }
+
+    @Override
+    public boolean shouldRender(PistolBullet entity, Frustum frustum, double x, double y, double z) {
+        return true;
     }
 
     @Override
     public void render(PistolBulletStateRenderer state, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         super.render(state, matrices, vertexConsumers, light);
-        matrices.push();
 
+        matrices.push();
+        matrices.translate(0.0f, 0.1f, 0.0f);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(state.yaw));
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(state.pitch));
 
-        // Use getEntityCutout to ensure the texture and transparency render correctly
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(net.minecraft.client.render.RenderLayer.getEntityCutout(TEXTURE));
+        MatrixStack.Entry entry = matrices.peek();
+        VertexConsumer vc = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(TEXTURE));
 
-        // This calls the final render method in the Model class,
-        // which in turn renders the 'root' ModelPart you defined.
-        this.model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV);
+        // Vertex 1
+        vc.vertex(entry.getPositionMatrix(), -0.25f, 0.0f, 0.0f)
+                .color(255, 255, 255, 255)
+                .texture(0.0f, 0.0f)
+                .overlay(OverlayTexture.DEFAULT_UV)
+                .light(light)
+                .normal(entry, 0.0f, 1.0f, 0.0f);
+
+        // Vertex 2
+        vc.vertex(entry.getPositionMatrix(), 0.25f, 0.0f, 0.0f)
+                .color(255, 255, 255, 255)
+                .texture(1.0f, 0.0f)
+                .overlay(OverlayTexture.DEFAULT_UV)
+                .light(light)
+                .normal(entry, 0.0f, 1.0f, 0.0f);
+
+        // Vertex 3
+        vc.vertex(entry.getPositionMatrix(), 0.25f, 0.5f, 0.0f)
+                .color(255, 255, 255, 255)
+                .texture(1.0f, 1.0f)
+                .overlay(OverlayTexture.DEFAULT_UV)
+                .light(light)
+                .normal(entry, 0.0f, 1.0f, 0.0f);
+
+        // Vertex 4
+        vc.vertex(entry.getPositionMatrix(), -0.25f, 0.5f, 0.0f)
+                .color(255, 255, 255, 255)
+                .texture(0.0f, 1.0f)
+                .overlay(OverlayTexture.DEFAULT_UV)
+                .light(light)
+                .normal(entry, 0.0f, 1.0f, 0.0f);
 
         matrices.pop();
     }
