@@ -1,12 +1,13 @@
 package com.me.cmitems.entities.bullet;
 
+import com.me.cmitems.ModDamageSource;
 import com.me.cmitems.entities.bullet.pistol.PistolBullet;
+import com.me.cmitems.utils.Chat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
@@ -18,7 +19,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public abstract class Bullet extends ProjectileEntity {
@@ -42,45 +42,14 @@ public abstract class Bullet extends ProjectileEntity {
     public void tick() {
         super.tick();
 
-        if (!(world instanceof ServerWorld serverWorld)) return;
-
         Vec3d start = this.getPos();
         Vec3d motion = this.getVelocity();
         Vec3d end = start.add(motion);
 
-        // Raycast for blocks
-        BlockHitResult blockHit = world.raycast(new RaycastContext(
-                start,
-                end,
-                RaycastContext.ShapeType.COLLIDER,
-                RaycastContext.FluidHandling.NONE,
-                this
-        ));
-        if (blockHit.getType() != HitResult.Type.MISS) {
-            this.discard();
-            return;
-        }
+        HitResult hit = ProjectileUtil.getCollision(this, this::shouldHit);
 
-        // Raycast for entities
-        EntityHitResult hit = ProjectileUtil.raycast(
-                this,
-                start,
-                end,
-                this.getBoundingBox().stretch(motion).expand(1.0),
-                this::shouldHit,
-                0.0
-        );
-
-        if (hit != null) {
-            RegistryKey<DamageType> arrowKey = DamageTypes.ARROW;
-            RegistryEntry<DamageType> arrowTypeEntry = serverWorld.getRegistryManager()
-                    .getOrThrow(RegistryKeys.DAMAGE_TYPE)
-                    .getOrThrow(arrowKey);
-
-            DamageSource ds = new DamageSource(arrowTypeEntry, shooter);
-            hit.getEntity().damage(serverWorld, ds, 5f);
-            this.discard();
-            return;
+        if (hit.getType() != HitResult.Type.MISS) {
+            this.onCollision(hit); // triggers onEntityHit / onBlockHit
         }
 
         // Move bullet
@@ -98,6 +67,28 @@ public abstract class Bullet extends ProjectileEntity {
         return !e.isSpectator() && e.canHit() && !(e instanceof PistolBullet) && e != shooter;
     }
 
+    @Override
+    protected void onEntityHit(EntityHitResult entityHitResult) {
+        if (!shouldHit(entityHitResult.getEntity())) return;
+
+        RegistryKey<DamageType> bulletKey = ModDamageSource.BULLET;
+        RegistryEntry<DamageType> bulletTypeEntry = this.world.getRegistryManager()
+                .getOrThrow(RegistryKeys.DAMAGE_TYPE)
+                .getOrThrow(bulletKey);
+
+        DamageSource ds = new DamageSource(bulletTypeEntry, shooter);
+        if (this.world instanceof ServerWorld serverWorld) entityHitResult.getEntity().damage(serverWorld, ds, 5f);
+        else Chat.chat("§cError damaging");
+        this.discard();
+
+    }
+
+    @Override
+    protected void onBlockHit(BlockHitResult blockHitResult) {
+        if (blockHitResult.getType() != HitResult.Type.MISS) {
+            this.discard();
+        }
+    }
 
     public enum Type {
         PISTOL;

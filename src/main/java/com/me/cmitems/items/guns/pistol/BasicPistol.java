@@ -10,7 +10,7 @@ public class BasicPistol extends Gun {
             "basic_pistol",
             BasicPistol::new,
             new Item.Settings()
-                    .useCooldown(1f)
+                    .useCooldown(0.25f)
                     .maxCount(1)
     );
 

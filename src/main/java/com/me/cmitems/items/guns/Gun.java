@@ -12,8 +12,6 @@ public abstract class Gun extends Item {
     protected double maxAmmo;
     protected int ammo;
     protected float damage;
-    
-    protected int cooldownDuration; // In ticks
 
     protected Gun.Type gunType;
     protected Bullet.Type bulletType;

@@ -54,6 +54,9 @@ public class CmItems implements ModInitializer {
 		// Blocks
 		ArrowTnt.register();
 
+		// Damage Type
+		ModDamageSource.register();
+
 		// System
 		ModComponents.register();
 		CustomCreativeItem.register();
