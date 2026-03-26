@@ -21,6 +21,7 @@ public class PistolGun extends com.me.cmitems.items.guns.Gun {
         this.cooldown = 5;
         this.gunType = Gun.Type.PISTOL;
         this.bulletType = Bullet.Type.PISTOL;
+        this.firemode = Gun.FireMode.SEMI;
     }
 
     public static void register() {

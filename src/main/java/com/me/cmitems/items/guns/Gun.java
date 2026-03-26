@@ -19,8 +19,11 @@ public abstract class Gun extends Item {
     protected float damage;
     protected int cooldown;
 
+    protected Gun.FireMode firemode;
     protected Gun.Type gunType;
     protected Bullet.Type bulletType;
+
+    protected boolean wasPressed = false;
 
     public Gun(Settings settings) {
         super(settings);
@@ -37,9 +40,15 @@ public abstract class Gun extends Item {
 
             if (stack.getItem() instanceof Gun gun) {
                 // Left click
-                if (attackKey.isPressed()) {
+                boolean pressed = attackKey.isPressed();
+                boolean pressedThisTick = pressed && !gun.wasPressed;
+                boolean releasedThisTick = !pressed && gun.wasPressed;
+
+                if (pressedThisTick && gun.firemode == FireMode.SEMI) {
                     gun.leftClick(world, player, stack);
                 }
+
+                gun.wasPressed = pressed;
             }
 
         });
@@ -82,6 +91,12 @@ public abstract class Gun extends Item {
 
     public enum Type {
         PISTOL
+    }
+
+    public enum FireMode {
+        SEMI,
+        BURST,
+        AUTO
     }
 
 }
