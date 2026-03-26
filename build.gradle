@@ -49,6 +49,8 @@ dependencies {
 
 	modImplementation(include("org.json:json:$json_version"))
 
+	modImplementation(include("io.github.classgraph:classgraph:4.8.165"))
+
 }
 
 processResources {

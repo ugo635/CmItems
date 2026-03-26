@@ -64,7 +64,7 @@ public abstract class Bullet extends ProjectileEntity {
     }
 
     protected boolean shouldHit(Entity e) {
-        return !e.isSpectator() && e.canHit() && !(e instanceof PistolBullet) && e != shooter;
+        return !e.isSpectator() && e.canHit() && !(e instanceof Bullet) && e != shooter;
     }
 
     @Override

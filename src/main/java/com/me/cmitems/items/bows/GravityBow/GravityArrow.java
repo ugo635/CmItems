@@ -1,6 +1,6 @@
 package com.me.cmitems.items.bows.GravityBow;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import com.me.cmitems.utils.Register;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -25,7 +25,7 @@ public class GravityArrow {
     public static List<ArrowData> arrows = new ArrayList<>();
 
     public static void register() {
-        ServerTickEvents.END_WORLD_TICK.register(GravityArrow::arrowPull);
+        Register.onServerTick(1, GravityArrow::arrowPull);
     }
 
     private static void arrowPull(ServerWorld world) {

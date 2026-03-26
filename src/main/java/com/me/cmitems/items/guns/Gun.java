@@ -3,11 +3,12 @@ package com.me.cmitems.items.guns;
 import com.me.cmitems.CmItems;
 import com.me.cmitems.entities.bullet.Bullet;
 import com.me.cmitems.utils.Chat;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import com.me.cmitems.utils.Register;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -30,7 +31,7 @@ public abstract class Gun extends Item {
     }
 
     static {
-        ServerTickEvents.END_WORLD_TICK.register(world -> {
+        Register.onServerTick(1, world -> {
             PlayerEntity player = CmItems.mc.player;
             if (player == null) return;
 
@@ -52,9 +53,10 @@ public abstract class Gun extends Item {
             }
 
         });
+
     }
 
-    protected void leftClick(World world, PlayerEntity player, ItemStack stack) {
+    protected void leftClick(ServerWorld world, PlayerEntity player, ItemStack stack) {
         if (player.getItemCooldownManager().isCoolingDown(stack)) return;
 
         this.shoot(world, player);
