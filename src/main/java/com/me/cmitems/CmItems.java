@@ -7,7 +7,7 @@ import com.me.cmitems.items.bows.GravityBow.GravityArrow;
 import com.me.cmitems.items.bows.EnderBow;
 import com.me.cmitems.items.bows.GravityBow.GravityBow;
 import com.me.cmitems.entities.bullet.pistol.PistolBulletRenderer;
-import com.me.cmitems.items.guns.pistol.BasicPistol;
+import com.me.cmitems.items.guns.pistol.PistolGun;
 import com.me.cmitems.items.tools.drills.DiamondDrill;
 import com.me.cmitems.items.other.LightningStick;
 import com.me.cmitems.items.bows.TntBow;
@@ -45,7 +45,7 @@ public class CmItems implements ModInitializer {
 		DiamondDrill.register();
 
 		// Guns
-		BasicPistol.register();
+		PistolGun.register();
 
 		// Entities
 		ArrowTntEntityRenderer.register();
