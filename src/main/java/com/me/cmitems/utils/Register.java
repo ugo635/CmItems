@@ -1,18 +1,13 @@
 package com.me.cmitems.utils;
 
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.server.world.ServerWorld;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 
 import static com.me.cmitems.utils.TickScheduler.clientTasks;
@@ -48,12 +43,6 @@ public class Register {
         }));
     }
 
-    public static void commandWithArgs(String name, Consumer<String[]> action, List<List<String>> args, List<ArgumentType<Object>> argumentTypes) {
-        ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> {
-            dispatcher.register(createLiteralWithArgs(name, action,  args, argumentTypes));
-        }));
-    }
-
     public static LiteralArgumentBuilder<FabricClientCommandSource> createLiteral(String name, Consumer<String[]> action) {
         return ClientCommandManager.literal(name)
                 .executes(context -> { action.accept(new String[0]); return 1; })
@@ -66,76 +55,6 @@ public class Register {
                             action.accept(args);
                             return 1;
                         }));
-    }
-
-    /**
-     *
-     * @param name Name of the command
-     * @param action What it will do
-     * @param args List of argument lists. Each inner list represents a set of arguments for a specific subcommand or variation of the command. The outer list allows for multiple variations of the command, each with its own set of arguments.
-     * <pre>
-     *     {@code
-     *          Example:
-     *          createLiteralWithArgs("fruit",
-     *          () -> {System.out.println("Hello")},
-     *          List.of(
-     *              List.of("banana", "apple"),
-     *              List.of(1, 2)
-     *          ),
-     *          List.of(ArgumentType<String>, ArgumentType<Integer>)
-     *          Command:
-     *          /name <banana|apple> <1|2>
-     *     }
-     * </pre>
-     */
-    public static LiteralArgumentBuilder<FabricClientCommandSource> createLiteralWithArgs(
-            String name,
-            Consumer<String[]> action,
-            List<List<String>> args,
-            List<ArgumentType<Object>> argumentTypes
-    ) {
-        LiteralArgumentBuilder<FabricClientCommandSource> root = ClientCommandManager.literal(name);
-
-        ArgumentBuilder<FabricClientCommandSource, ?> current = root;
-        List<String> argNames = new ArrayList<>();
-
-        for (int i = 0; i < args.size(); i++) {
-            List<String> possibilities = args.get(i);
-            ArgumentType<Object> type = argumentTypes.get(i);
-
-            String argName = "arg" + i;
-            argNames.add(argName);
-
-            RequiredArgumentBuilder<FabricClientCommandSource, Object> argument =
-                    ClientCommandManager.argument(argName, type)
-                            .suggests((ctx, builder) -> {
-                                String typed = builder.getRemaining().toLowerCase();
-
-                                for (String option : possibilities) {
-                                    if (option.toLowerCase().startsWith(typed)) {
-                                        builder.suggest(option);
-                                    }
-                                }
-
-                                return builder.buildFuture();
-                            });
-
-            current.then(argument);
-            current = argument;
-        }
-
-        current.executes(ctx -> {
-            String[] values = new String[argNames.size()];
-
-            for (int i = 0; i < argNames.size(); i++) {
-                values[i] = ctx.getArgument(argNames.get(i), Object.class).toString();
-            }
-
-            action.accept(values);
-            return 1;
-        });
-
-        return root;
     }
 
 
