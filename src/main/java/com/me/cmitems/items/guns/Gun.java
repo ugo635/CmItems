@@ -3,24 +3,44 @@ package com.me.cmitems.items.guns;
 import com.me.cmitems.entities.bullet.Bullet;
 import com.me.cmitems.utils.Chat;
 import com.me.cmitems.utils.Helper;
+import com.me.cmitems.utils.Register;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+/**
+ * <h3 style="color: white">Shooting handler: </h3>
+ * @see com.me.cmitems.mixin.MouseMixin
+ */
 public abstract class Gun extends Item {
     protected double maxAmmo;
     protected int ammo;
     protected float damage;
     protected int cooldown;
 
-    protected Gun.FireMode firemode;
+    protected Gun.FireMode fireMode;
     protected Gun.Type gunType;
     protected Bullet.Type bulletType;
 
+    public static boolean hasBeenReleased = true;
+
     public Gun(Settings settings) {
         super(settings);
+    }
+
+    static {
+        Register.onClientTick(1, mc -> {
+            if (mc.player == null) return;
+
+            ItemStack stack = mc.player.getMainHandStack();
+            if (!(stack.getItem() instanceof Gun gun)) return;
+
+            if (gun.getFireMode() == Gun.FireMode.AUTO && !hasBeenReleased) {
+                gun.leftClick(mc.player, stack);
+            }
+        });
     }
 
     public void leftClick(PlayerEntity player, ItemStack stack) {
@@ -60,6 +80,9 @@ public abstract class Gun extends Item {
 
     protected void recoil() {}
 
+    public FireMode getFireMode() {
+        return fireMode;
+    }
 
     public enum Type {
         PISTOL

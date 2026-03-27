@@ -5,6 +5,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.world.ServerWorld;
 
 import java.util.Arrays;
@@ -20,8 +21,8 @@ public class Register {
      * @param tick The number of ticks after which the action should be executed.
      * @param action The action to execute. It receives a lambda to unregister itself.
      */
-    public static void onClientTick(int tick, Consumer<String[]> action) {
-        clientTasks.add(new TickScheduler.ClientTask(tick, done -> action.accept(new String[0])));
+    public static void onClientTick(int tick, Consumer<MinecraftClient> action) {
+        clientTasks.add(new TickScheduler.ClientTask(tick, action));
     }
 
     public static void onServerTick(int tick, Consumer<ServerWorld> action) {

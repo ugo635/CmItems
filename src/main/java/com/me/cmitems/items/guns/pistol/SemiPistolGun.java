@@ -5,15 +5,15 @@ import com.me.cmitems.entities.bullet.Bullet;
 import com.me.cmitems.items.guns.Gun;
 import net.minecraft.item.Item;
 
-public class PistolGun extends com.me.cmitems.items.guns.Gun {
+public class SemiPistolGun extends Gun {
     public static final Item PISTOL_GUN = ModItems.register(
             "basic_pistol",
-            PistolGun::new,
+            SemiPistolGun::new,
             new Item.Settings()
                     .maxCount(1)
     );
 
-    public PistolGun(Settings settings) {
+    public SemiPistolGun(Settings settings) {
         super(settings);
         this.maxAmmo = 16;
         this.ammo = 16;
@@ -21,7 +21,7 @@ public class PistolGun extends com.me.cmitems.items.guns.Gun {
         this.cooldown = 5;
         this.gunType = Gun.Type.PISTOL;
         this.bulletType = Bullet.Type.PISTOL;
-        this.firemode = Gun.FireMode.SEMI;
+        this.fireMode = Gun.FireMode.SEMI;
     }
 
     public static void register() {

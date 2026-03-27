@@ -10,7 +10,8 @@ import com.me.cmitems.items.bows.EnderBow;
 import com.me.cmitems.items.bows.GravityBow.GravityArrow;
 import com.me.cmitems.items.bows.GravityBow.GravityBow;
 import com.me.cmitems.items.bows.TntBow;
-import com.me.cmitems.items.guns.pistol.PistolGun;
+import com.me.cmitems.items.guns.pistol.AutoPistolGun;
+import com.me.cmitems.items.guns.pistol.SemiPistolGun;
 import com.me.cmitems.items.other.LightningStick;
 import com.me.cmitems.items.tools.drills.DiamondDrill;
 import com.me.cmitems.items.tools.pickaxe.ExplosionPickaxe;
@@ -45,7 +46,8 @@ public class CmItems implements ModInitializer {
 		DiamondDrill.register();
 
 		// Guns
-		PistolGun.register();
+		SemiPistolGun.register();
+		AutoPistolGun.register();
 
 		// Entities
 		ArrowTntEntityRenderer.register();
