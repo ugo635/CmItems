@@ -46,7 +46,7 @@ public abstract class Gun extends Item {
     public void leftClick(PlayerEntity player, ItemStack stack) {
         if (player.getItemCooldownManager().isCoolingDown(stack)) return;
 
-        this.shoot(Helper.getServerWorld(), player);
+        this.shoot(player);
         this.recoil();
         this.setCooldown(stack, player);
     }
@@ -58,21 +58,24 @@ public abstract class Gun extends Item {
         player.getItemCooldownManager().set(stack, this.cooldown);
     }
 
-    protected void shoot(World world, PlayerEntity user) {
+    protected void shoot(PlayerEntity shooter) {
+        World world = Helper.getServerWorld();
+
         if (world == null) {
             Chat.chat("§cFailed To Shoot");
             return;
         }
+
         Bullet bullet = this.bulletType.getBullet(world);
-        Vec3d look = user.getRotationVec(1.0f);
+        Vec3d look = shooter.getRotationVec(1.0f);
 
         Vec3d direction = look.multiply(5);
 
-        bullet.setPosition(user.getEyePos().add(look.multiply(0.5)));
+        bullet.setPosition(shooter.getEyePos().add(look.multiply(0.5)));
         bullet.setVelocity(direction);
         bullet.setPitch((float) -Math.toDegrees(-Math.atan2(direction.y, Math.sqrt(direction.x * direction.x + direction.z * direction.z))));
         bullet.setYaw((float) (Math.toDegrees(Math.atan2(direction.z, direction.x)) - 90f));
-        bullet.setShooter(user);
+        bullet.setShooter(shooter);
 
         world.spawnEntity(bullet);
         Chat.chat("§6Shot");
