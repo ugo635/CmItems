@@ -24,7 +24,7 @@ import java.util.function.Predicate;
 
 public class TntBow extends BowItem {
     public static Item TNT_BOW = ModItems.register(
-            "tnt_bow",
+            "bows/tnt_bow",
             TntBow::new,
             new Item.Settings().maxCount(1)
     );

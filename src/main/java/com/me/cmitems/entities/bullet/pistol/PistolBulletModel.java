@@ -19,12 +19,6 @@ public class PistolBulletModel extends EntityModel<PistolBulletStateRenderer> {
         ModelPartData root = modelData.getRoot();
 
         root.addChild("main",
-                /*
-                ModelPartBuilder.create()
-                        .uv(0, 0)
-                        .cuboid(-1.0F, -1.0F, -3.0F, 2.0F, 2.0F, 6.0F),
-                ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F)
-                 */
                 ModelPartBuilder.create()
                         .uv(0, 0)
                         .cuboid(-1.0F, -1.0F, -3.0F, 2.0F, 2.0F, 2.0F),

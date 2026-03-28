@@ -25,7 +25,7 @@ import java.util.function.Predicate;
 
 public class EnderBow extends BowItem {
     public static Item ENDER_BOW = ModItems.register(
-            "ender_bow",
+            "bows/ender_bow",
             EnderBow::new,
             new Item.Settings().maxCount(1)
     );

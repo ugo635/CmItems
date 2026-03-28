@@ -27,7 +27,7 @@ import java.util.function.Predicate;
 
 public class GravityBow extends BowItem {
     public static Item GRAVITY_BOW = ModItems.register(
-            "gravity_bow",
+            "bows/gravity_bow",
             GravityBow::new,
             new Item.Settings()
                     .component(ModComponents.GRAVITY_PULL, 5.0) // Adds a gravity pull component with a value of 5.0

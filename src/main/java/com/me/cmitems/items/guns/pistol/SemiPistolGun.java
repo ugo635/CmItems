@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class SemiPistolGun extends Gun {
     public static final Item PISTOL_GUN = ModItems.register(
-            "basic_pistol",
+            "guns/basic_pistol",
             SemiPistolGun::new,
             new Item.Settings()
                     .maxCount(1)

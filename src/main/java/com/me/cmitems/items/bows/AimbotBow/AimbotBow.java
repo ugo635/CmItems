@@ -25,7 +25,7 @@ import static com.me.cmitems.CmItems.mc;
 
 public class AimbotBow extends BowItem {
     public static Item AIMBOT_BOW = ModItems.register(
-            "aimbot_bow",
+            "bows/aimbot_bow",
             AimbotBow::new,
             new Settings()
                     .maxCount(1) // Sets the maximum stack count to 1

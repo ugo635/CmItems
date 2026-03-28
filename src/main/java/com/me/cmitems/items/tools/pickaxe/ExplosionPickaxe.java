@@ -1,21 +1,18 @@
 package com.me.cmitems.items.tools.pickaxe;
 
 import com.me.cmitems.creator.ModItems;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ExplosionPickaxe extends Item {
     public static final Item EXPLOSION_PICKAXE =  ModItems.register(
-        "explosion_pickaxe",
+        "tools/explosion_pickaxe",
             ExplosionPickaxe::new,
             new Item.Settings()
                     .pickaxe(ToolMaterial.DIAMOND, 1f, -2.8f)

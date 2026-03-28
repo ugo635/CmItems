@@ -10,7 +10,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.RotationAxis;
 
 public class PistolBulletRenderer extends EntityRenderer<PistolBullet, PistolBulletStateRenderer> {
-    //private static final Identifier TEXTURE = Identifier.of("cmitems", "textures/entity/bullet/pistol_bullet.png");
     private static final Identifier TEXTURE = Identifier.of("minecraft", "textures/misc/white.png");
     private final PistolBulletModel model;
 

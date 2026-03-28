@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class AutoPistolGun extends Gun {
     public static final Item AUTO_PISTOL_GUN = ModItems.register(
-            "auto_pistol",
+            "guns/auto_pistol",
             AutoPistolGun::new,
             new Item.Settings()
                     .maxCount(1)
