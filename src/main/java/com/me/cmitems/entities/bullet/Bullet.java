@@ -2,7 +2,6 @@ package com.me.cmitems.entities.bullet;
 
 import com.me.cmitems.ModDamageSource;
 import com.me.cmitems.entities.bullet.pistol.PistolBullet;
-import com.me.cmitems.utils.Chat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -78,7 +77,6 @@ public abstract class Bullet extends ProjectileEntity {
 
         DamageSource ds = new DamageSource(bulletTypeEntry, shooter);
         if (this.world instanceof ServerWorld serverWorld) entityHitResult.getEntity().damage(serverWorld, ds, 5f);
-        else Chat.chat("§cError damaging");
         this.discard();
 
     }

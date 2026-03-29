@@ -1,8 +1,5 @@
 package com.me.cmitems.utils;
 
-import static com.me.cmitems.CmItems.mc;
-import static java.lang.Integer.parseInt;
-
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.text.ClickEvent;
@@ -13,6 +10,9 @@ import net.minecraft.util.Formatting;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import static com.me.cmitems.CmItems.mc;
+import static java.lang.Integer.parseInt;
 
 public class Chat {
 

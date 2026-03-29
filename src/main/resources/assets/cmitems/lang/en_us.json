@@ -8,14 +8,14 @@
     "itemTooltip.cmitems.gravity_bow_l1": "§6Shoots arrows that pull entities towards the impact point",
     "itemTooltip.cmitems.gravity_bow_l2": "§6Based on the Gravity Pull: ",
 
-  "item.cmitems.lightning_stick": "Lightning Stick",
+  "item.cmitems.stick.lightning_stick": "Lightning Stick",
   "itemTooltip.cmitems.lightning_stick": "§6Summons lightning where you look",
 
     "item.cmitems.bows.aimbot_bow": "Aimbot Bow",
   "itemTooltip.cmitems.aimbot_bow_l1": "§6A bow that automatically aims",
 
 
-  "item.cmitems.arrow_tnt": "Arrow TNT",
+  "item.cmitems.block.arrow_tnt": "Arrow TNT",
   "item.cmitems.arrow_tnt.tooltip": "§aLaunches arrow everywhere when explodes",
 
   "item.cmitems.tools.diamond_drill": "Diamond Drill",

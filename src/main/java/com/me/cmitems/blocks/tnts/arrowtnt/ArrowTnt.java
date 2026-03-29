@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 // Tnt that spawns arrow everywhere when explode
 public class ArrowTnt extends TntBlock {
     public static final Block ARROW_TNT = ModBlocks.register(
-            "arrow_tnt",
+            "block/arrow_tnt",
             ArrowTnt::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS),
             true

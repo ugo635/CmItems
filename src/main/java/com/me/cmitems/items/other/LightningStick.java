@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class LightningStick extends Item {
     public static Item LIGHTNING_STICK = ModItems.register(
-            "lightning_stick",
+            "stick/lightning_stick",
             LightningStick::new,
             new Item.Settings().maxCount(1)
     );
