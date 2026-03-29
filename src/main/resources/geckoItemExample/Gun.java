@@ -48,7 +48,7 @@ public abstract class Gun extends Item implements GeoItem {
         if (player.getItemCooldownManager().isCoolingDown(stack)) return;
 
         this.shoot(player);
-        this.recoil(player);
+        this.recoil();
         this.setCooldown(stack, player);
     }
 
@@ -82,9 +82,7 @@ public abstract class Gun extends Item implements GeoItem {
         Chat.chat("§6Shot");
     }
 
-    protected void recoil(PlayerEntity player) {
-        player.setPitch(player.getPitch() - 10f);
-    }
+    protected void recoil() {}
 
     public FireMode getFireMode() {
         return fireMode;
