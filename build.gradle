@@ -45,7 +45,7 @@ dependencies {
 
 	modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-common-$minecraft_version:$rconfig_version"
 	modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-$minecraft_version:$rconfig_version"
-
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.21.5:$geckolib_version"
 
 	modImplementation(include("org.json:json:$json_version"))
 

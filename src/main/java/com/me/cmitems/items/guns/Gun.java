@@ -9,12 +9,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import software.bernie.geckolib.animatable.GeoItem;
 
 /**
  * <h3 style="color: white">Shooting handler: </h3>
  * @see com.me.cmitems.mixin.MouseMixin
  */
-public abstract class Gun extends Item {
+public abstract class Gun extends Item implements GeoItem {
     protected double maxAmmo;
     protected int ammo;
     protected float damage;
