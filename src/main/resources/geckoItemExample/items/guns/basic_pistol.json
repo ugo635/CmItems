@@ -1,0 +1,9 @@
+{
+    "model": {
+        "type": "minecraft:special",
+        "base": "cmitems:item/guns/pistol/basic_pistol",
+        "model": {
+            "type": "geckolib:geckolib"
+        }
+    }
+}

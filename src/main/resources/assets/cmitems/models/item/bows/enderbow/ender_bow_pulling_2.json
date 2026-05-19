@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "cmitems:item/bows/enderbow/ender_bow_pulling_2"
+  }
+}

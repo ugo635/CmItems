@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "cmitems:item/bows/tntbow/tnt_bow_pulling_0"
+  }
+}

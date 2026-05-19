@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "com.me.cmitems.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExampleMixin",
+		"BlockOutlineDrillMixin",
+		"MouseMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

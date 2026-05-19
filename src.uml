@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/ugole/OneDrive/Documents/Code/Java/CmItems/src</OriginalElement>
+  <nodes>
+    <node x="388.0" y="668.0">com.me.cmitems.items.TntBow</node>
+    <node x="-103.5" y="1445.0">com.me.cmitems.items.GravityBow</node>
+    <node x="219.5" y="343.0">com.me.cmitems.items.LightningStick</node>
+    <node x="664.0" y="86.0">com.me.cmitems.CmItems</node>
+    <node x="-85.5" y="1158.0">com.me.cmitems.Entities.GravityArrow.ArrowData</node>
+    <node x="419.5" y="1526.0">com.me.cmitems.ModItems</node>
+    <node x="450.0" y="-14.0">com.me.cmitems.mixin.ExampleMixin</node>
+    <node x="228.0" y="86.0">com.me.cmitems.ModComponents</node>
+    <node x="60.0" y="566.0">com.me.cmitems.Register</node>
+    <node x="81.0" y="-2.0">com.me.cmitems.TickScheduler</node>
+    <node x="-103.5" y="688.0">com.me.cmitems.Entities.GravityArrow</node>
+    <node x="40.5" y="258.0">com.me.cmitems.TickScheduler.ScheduledTask</node>
+    <node x="-49.5" y="98.0">com.me.cmitems.items.AimbotBow</node>
+    <node x="388.0" y="1042.0">com.me.cmitems.items.EnderBow</node>
+    <node x="-78.0" y="378.0">com.me.cmitems.items.GravitySword</node>
+    <node x="136.5" y="946.0">com.me.cmitems.CustomCreativeItem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.me.cmitems.Entities.GravityArrow.ArrowData" target="com.me.cmitems.Entities.GravityArrow" relationship="INNER_CLASS">
+      <point x="-6.0" y="-27.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="com.me.cmitems.TickScheduler.ScheduledTask" target="com.me.cmitems.TickScheduler" relationship="INNER_CLASS">
+      <point x="-40.0" y="-27.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.me.cmitems.items.GravityBow" target="com.me.cmitems.Entities.GravityArrow.ArrowData" relationship="CREATE">
+      <point x="-100.0" y="-120.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.me.cmitems.TickScheduler" target="com.me.cmitems.TickScheduler.ScheduledTask" relationship="TO_MANY">
+      <point x="40.0" y="27.0" />
+      <point x="0.0" y="-27.0" />
+    </edge>
+    <edge source="com.me.cmitems.Register" target="com.me.cmitems.TickScheduler.ScheduledTask" relationship="CREATE">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.me.cmitems.Entities.GravityArrow" target="com.me.cmitems.Entities.GravityArrow.ArrowData" relationship="TO_MANY">
+      <point x="15.0" y="62.0" />
+      <point x="9.0" y="-27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.5474112856311809" showDependencies="true" x="369.5" y="845.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

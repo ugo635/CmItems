@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "cmitems:item/drills/diamond_drill"
+    }
+}

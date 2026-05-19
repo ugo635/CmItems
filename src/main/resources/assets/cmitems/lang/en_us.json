@@ -1,0 +1,28 @@
+{
+  "itemGroup.cmitems":  "Cm Items",
+
+  "item.cmitems.bows.ender_bow": "Ender Bow",
+  "item.cmitems.bows.tnt_bow": "Tnt Bow",
+
+  "item.cmitems.bows.gravity_bow": "Gravity Bow",
+    "itemTooltip.cmitems.gravity_bow_l1": "§6Shoots arrows that pull entities towards the impact point",
+    "itemTooltip.cmitems.gravity_bow_l2": "§6Based on the Gravity Pull: ",
+
+  "item.cmitems.stick.lightning_stick": "Lightning Stick",
+  "itemTooltip.cmitems.lightning_stick": "§6Summons lightning where you look",
+
+    "item.cmitems.bows.aimbot_bow": "Aimbot Bow",
+  "itemTooltip.cmitems.aimbot_bow_l1": "§6A bow that automatically aims",
+
+
+  "item.cmitems.block.arrow_tnt": "Arrow TNT",
+  "item.cmitems.arrow_tnt.tooltip": "§aLaunches arrow everywhere when explodes",
+
+  "item.cmitems.tools.diamond_drill": "Diamond Drill",
+    "itemTooltip.cmitems.diamond_drill": "§6A drill that can mine in a 3x3 area",
+
+  "item.cmitems.tools.explosion_pickaxe": "Explosion Pickaxe",
+
+  "item.cmitems.guns.basic_pistol": "Basic Pistol",
+  "item.cmitems.guns.auto_pistol": "Auto Pistol"
+}
